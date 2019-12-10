@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 09-04-2019 a las 01:05:10
--- Versión del servidor: 10.1.35-MariaDB
--- Versión de PHP: 7.2.9
+-- Host: 127.0.0.1
+-- Generation Time: Dec 10, 2019 at 05:17 AM
+-- Server version: 10.4.10-MariaDB
+-- PHP Version: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `life+`
+-- Database: `life_plus`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `agencias`
+-- Table structure for table `agencias`
 --
 
 CREATE TABLE `agencias` (
@@ -34,7 +34,7 @@ CREATE TABLE `agencias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
--- Volcado de datos para la tabla `agencias`
+-- Dumping data for table `agencias`
 --
 
 INSERT INTO `agencias` (`id_agencia`, `nombre`) VALUES
@@ -50,7 +50,7 @@ INSERT INTO `agencias` (`id_agencia`, `nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `asociado`
+-- Table structure for table `asociado`
 --
 
 CREATE TABLE `asociado` (
@@ -61,7 +61,7 @@ CREATE TABLE `asociado` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `cambios_estado`
+-- Table structure for table `cambios_estado`
 --
 
 CREATE TABLE `cambios_estado` (
@@ -71,7 +71,7 @@ CREATE TABLE `cambios_estado` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `cambios_estado`
+-- Dumping data for table `cambios_estado`
 --
 
 INSERT INTO `cambios_estado` (`id_camb_estado`, `estado_act`, `estado_permitido`) VALUES
@@ -104,7 +104,7 @@ INSERT INTO `cambios_estado` (`id_camb_estado`, `estado_act`, `estado_permitido`
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `estados`
+-- Table structure for table `estados`
 --
 
 CREATE TABLE `estados` (
@@ -113,7 +113,7 @@ CREATE TABLE `estados` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `estados`
+-- Dumping data for table `estados`
 --
 
 INSERT INTO `estados` (`id_estado`, `nombre`) VALUES
@@ -138,7 +138,7 @@ INSERT INTO `estados` (`id_estado`, `nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `integrantes`
+-- Table structure for table `integrantes`
 --
 
 CREATE TABLE `integrantes` (
@@ -153,7 +153,7 @@ CREATE TABLE `integrantes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
--- Volcado de datos para la tabla `integrantes`
+-- Dumping data for table `integrantes`
 --
 
 INSERT INTO `integrantes` (`id_integrante`, `nombre`, `apellido`, `dni`, `sexo`, `id_prospecto`, `fecha_nacimiento`, `tipo_ingresante`) VALUES
@@ -165,7 +165,7 @@ INSERT INTO `integrantes` (`id_integrante`, `nombre`, `apellido`, `dni`, `sexo`,
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `legajos`
+-- Table structure for table `legajos`
 --
 
 CREATE TABLE `legajos` (
@@ -178,7 +178,7 @@ CREATE TABLE `legajos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
--- Volcado de datos para la tabla `legajos`
+-- Dumping data for table `legajos`
 --
 
 INSERT INTO `legajos` (`id_legajo`, `nombre`, `apellido`, `email`, `dni`, `telefono`) VALUES
@@ -200,7 +200,7 @@ INSERT INTO `legajos` (`id_legajo`, `nombre`, `apellido`, `email`, `dni`, `telef
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `localidad`
+-- Table structure for table `localidad`
 --
 
 CREATE TABLE `localidad` (
@@ -211,7 +211,7 @@ CREATE TABLE `localidad` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
--- Volcado de datos para la tabla `localidad`
+-- Dumping data for table `localidad`
 --
 
 INSERT INTO `localidad` (`id`, `id_agencia`, `nombre`, `id_provincia`) VALUES
@@ -230,7 +230,7 @@ INSERT INTO `localidad` (`id`, `id_agencia`, `nombre`, `id_provincia`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `movimientos`
+-- Table structure for table `movimientos`
 --
 
 CREATE TABLE `movimientos` (
@@ -238,14 +238,14 @@ CREATE TABLE `movimientos` (
   `descripcion` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
   `id_prospecto` int(5) NOT NULL,
   `fecha` date NOT NULL,
-  `estado` int(5) NOT NULL,
+  `estado_nuevo` int(5) NOT NULL,
   `id_usuario` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `prospectos`
+-- Table structure for table `prospectos`
 --
 
 CREATE TABLE `prospectos` (
@@ -262,7 +262,7 @@ CREATE TABLE `prospectos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
--- Volcado de datos para la tabla `prospectos`
+-- Dumping data for table `prospectos`
 --
 
 INSERT INTO `prospectos` (`id_prospectos`, `vendedor`, `estado_actual`, `nombre`, `apellido`, `email`, `dni`, `fecha_alta`, `sexo`, `localidad`) VALUES
@@ -301,7 +301,7 @@ INSERT INTO `prospectos` (`id_prospectos`, `vendedor`, `estado_actual`, `nombre`
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `provincias`
+-- Table structure for table `provincias`
 --
 
 CREATE TABLE `provincias` (
@@ -310,7 +310,7 @@ CREATE TABLE `provincias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
--- Volcado de datos para la tabla `provincias`
+-- Dumping data for table `provincias`
 --
 
 INSERT INTO `provincias` (`id_provincia`, `nombre`) VALUES
@@ -341,7 +341,7 @@ INSERT INTO `provincias` (`id_provincia`, `nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `roles`
+-- Table structure for table `roles`
 --
 
 CREATE TABLE `roles` (
@@ -350,7 +350,7 @@ CREATE TABLE `roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
--- Volcado de datos para la tabla `roles`
+-- Dumping data for table `roles`
 --
 
 INSERT INTO `roles` (`id_rol`, `nombre`) VALUES
@@ -364,7 +364,7 @@ INSERT INTO `roles` (`id_rol`, `nombre`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `rol_estprosp_permitidos`
+-- Table structure for table `rol_estprosp_permitidos`
 --
 
 CREATE TABLE `rol_estprosp_permitidos` (
@@ -374,7 +374,7 @@ CREATE TABLE `rol_estprosp_permitidos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `rol_estprosp_permitidos`
+-- Dumping data for table `rol_estprosp_permitidos`
 --
 
 INSERT INTO `rol_estprosp_permitidos` (`id_permiso`, `id_rol`, `id_estado_permitido`) VALUES
@@ -397,7 +397,7 @@ INSERT INTO `rol_estprosp_permitidos` (`id_permiso`, `id_rol`, `id_estado_permit
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `seguimientos`
+-- Table structure for table `seguimientos`
 --
 
 CREATE TABLE `seguimientos` (
@@ -409,7 +409,7 @@ CREATE TABLE `seguimientos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
--- Volcado de datos para la tabla `seguimientos`
+-- Dumping data for table `seguimientos`
 --
 
 INSERT INTO `seguimientos` (`id_seguimiento`, `fecha`, `descripcion`, `id_prospecto`, `id_usuario`) VALUES
@@ -423,7 +423,7 @@ INSERT INTO `seguimientos` (`id_seguimiento`, `fecha`, `descripcion`, `id_prospe
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `telefonos_pros`
+-- Table structure for table `telefonos_pros`
 --
 
 CREATE TABLE `telefonos_pros` (
@@ -433,7 +433,7 @@ CREATE TABLE `telefonos_pros` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
--- Volcado de datos para la tabla `telefonos_pros`
+-- Dumping data for table `telefonos_pros`
 --
 
 INSERT INTO `telefonos_pros` (`id_tel_pros`, `telefono`, `id_prospecto`) VALUES
@@ -444,7 +444,7 @@ INSERT INTO `telefonos_pros` (`id_tel_pros`, `telefono`, `id_prospecto`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios`
+-- Table structure for table `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -458,7 +458,7 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
--- Volcado de datos para la tabla `usuarios`
+-- Dumping data for table `usuarios`
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `id_rol`, `id_agencia`, `id_legajo`, `password`, `estado`, `nombre_usuario`) VALUES
@@ -473,23 +473,23 @@ INSERT INTO `usuarios` (`id_usuario`, `id_rol`, `id_agencia`, `id_legajo`, `pass
 (26, 5, 2, 32, 'lalalal', 1, 'Prueba');
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `agencias`
+-- Indexes for table `agencias`
 --
 ALTER TABLE `agencias`
   ADD PRIMARY KEY (`id_agencia`);
 
 --
--- Indices de la tabla `asociado`
+-- Indexes for table `asociado`
 --
 ALTER TABLE `asociado`
   ADD PRIMARY KEY (`dni`);
 
 --
--- Indices de la tabla `cambios_estado`
+-- Indexes for table `cambios_estado`
 --
 ALTER TABLE `cambios_estado`
   ADD PRIMARY KEY (`id_camb_estado`),
@@ -497,26 +497,26 @@ ALTER TABLE `cambios_estado`
   ADD KEY `estado_permitido` (`estado_permitido`);
 
 --
--- Indices de la tabla `estados`
+-- Indexes for table `estados`
 --
 ALTER TABLE `estados`
   ADD PRIMARY KEY (`id_estado`);
 
 --
--- Indices de la tabla `integrantes`
+-- Indexes for table `integrantes`
 --
 ALTER TABLE `integrantes`
   ADD PRIMARY KEY (`id_integrante`),
   ADD KEY `id_prospecto` (`id_prospecto`);
 
 --
--- Indices de la tabla `legajos`
+-- Indexes for table `legajos`
 --
 ALTER TABLE `legajos`
   ADD PRIMARY KEY (`id_legajo`);
 
 --
--- Indices de la tabla `localidad`
+-- Indexes for table `localidad`
 --
 ALTER TABLE `localidad`
   ADD PRIMARY KEY (`id`),
@@ -524,7 +524,7 @@ ALTER TABLE `localidad`
   ADD KEY `id_agencia` (`id_agencia`);
 
 --
--- Indices de la tabla `movimientos`
+-- Indexes for table `movimientos`
 --
 ALTER TABLE `movimientos`
   ADD PRIMARY KEY (`id_movimiento`),
@@ -532,7 +532,7 @@ ALTER TABLE `movimientos`
   ADD KEY `id_usuario` (`id_usuario`);
 
 --
--- Indices de la tabla `prospectos`
+-- Indexes for table `prospectos`
 --
 ALTER TABLE `prospectos`
   ADD PRIMARY KEY (`id_prospectos`),
@@ -540,26 +540,26 @@ ALTER TABLE `prospectos`
   ADD KEY `vendedor` (`vendedor`);
 
 --
--- Indices de la tabla `provincias`
+-- Indexes for table `provincias`
 --
 ALTER TABLE `provincias`
   ADD PRIMARY KEY (`id_provincia`);
 
 --
--- Indices de la tabla `roles`
+-- Indexes for table `roles`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`id_rol`);
 
 --
--- Indices de la tabla `rol_estprosp_permitidos`
+-- Indexes for table `rol_estprosp_permitidos`
 --
 ALTER TABLE `rol_estprosp_permitidos`
   ADD KEY `id_rol` (`id_rol`),
   ADD KEY `id_estado_permitido` (`id_estado_permitido`);
 
 --
--- Indices de la tabla `seguimientos`
+-- Indexes for table `seguimientos`
 --
 ALTER TABLE `seguimientos`
   ADD PRIMARY KEY (`id_seguimiento`),
@@ -567,14 +567,14 @@ ALTER TABLE `seguimientos`
   ADD KEY `id_usuario` (`id_usuario`);
 
 --
--- Indices de la tabla `telefonos_pros`
+-- Indexes for table `telefonos_pros`
 --
 ALTER TABLE `telefonos_pros`
   ADD PRIMARY KEY (`id_tel_pros`),
   ADD KEY `id_prospecto` (`id_prospecto`);
 
 --
--- Indices de la tabla `usuarios`
+-- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id_usuario`),
@@ -583,113 +583,113 @@ ALTER TABLE `usuarios`
   ADD KEY `id_legajo` (`id_legajo`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `agencias`
+-- AUTO_INCREMENT for table `agencias`
 --
 ALTER TABLE `agencias`
   MODIFY `id_agencia` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT de la tabla `asociado`
+-- AUTO_INCREMENT for table `asociado`
 --
 ALTER TABLE `asociado`
   MODIFY `dni` int(8) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `cambios_estado`
+-- AUTO_INCREMENT for table `cambios_estado`
 --
 ALTER TABLE `cambios_estado`
   MODIFY `id_camb_estado` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
--- AUTO_INCREMENT de la tabla `estados`
+-- AUTO_INCREMENT for table `estados`
 --
 ALTER TABLE `estados`
   MODIFY `id_estado` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
--- AUTO_INCREMENT de la tabla `integrantes`
+-- AUTO_INCREMENT for table `integrantes`
 --
 ALTER TABLE `integrantes`
   MODIFY `id_integrante` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de la tabla `legajos`
+-- AUTO_INCREMENT for table `legajos`
 --
 ALTER TABLE `legajos`
   MODIFY `id_legajo` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
--- AUTO_INCREMENT de la tabla `localidad`
+-- AUTO_INCREMENT for table `localidad`
 --
 ALTER TABLE `localidad`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT de la tabla `movimientos`
+-- AUTO_INCREMENT for table `movimientos`
 --
 ALTER TABLE `movimientos`
   MODIFY `id_movimiento` int(5) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `prospectos`
+-- AUTO_INCREMENT for table `prospectos`
 --
 ALTER TABLE `prospectos`
   MODIFY `id_prospectos` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
--- AUTO_INCREMENT de la tabla `provincias`
+-- AUTO_INCREMENT for table `provincias`
 --
 ALTER TABLE `provincias`
   MODIFY `id_provincia` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT de la tabla `seguimientos`
+-- AUTO_INCREMENT for table `seguimientos`
 --
 ALTER TABLE `seguimientos`
   MODIFY `id_seguimiento` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT de la tabla `telefonos_pros`
+-- AUTO_INCREMENT for table `telefonos_pros`
 --
 ALTER TABLE `telefonos_pros`
   MODIFY `id_tel_pros` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT de la tabla `usuarios`
+-- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `id_usuario` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
--- Restricciones para tablas volcadas
+-- Constraints for dumped tables
 --
 
 --
--- Filtros para la tabla `cambios_estado`
+-- Constraints for table `cambios_estado`
 --
 ALTER TABLE `cambios_estado`
   ADD CONSTRAINT `cambios_estado_ibfk_1` FOREIGN KEY (`estado_act`) REFERENCES `estados` (`id_estado`),
   ADD CONSTRAINT `cambios_estado_ibfk_2` FOREIGN KEY (`estado_permitido`) REFERENCES `estados` (`id_estado`);
 
 --
--- Filtros para la tabla `integrantes`
+-- Constraints for table `integrantes`
 --
 ALTER TABLE `integrantes`
   ADD CONSTRAINT `integrantes_ibfk_1` FOREIGN KEY (`id_prospecto`) REFERENCES `prospectos` (`id_prospectos`);
 
 --
--- Filtros para la tabla `localidad`
+-- Constraints for table `localidad`
 --
 ALTER TABLE `localidad`
   ADD CONSTRAINT `localidad_ibfk_1` FOREIGN KEY (`id_provincia`) REFERENCES `provincias` (`id_provincia`),
   ADD CONSTRAINT `localidad_ibfk_2` FOREIGN KEY (`id_agencia`) REFERENCES `agencias` (`id_agencia`);
 
 --
--- Filtros para la tabla `movimientos`
+-- Constraints for table `movimientos`
 --
 ALTER TABLE `movimientos`
   ADD CONSTRAINT `movimientos_ibfk_1` FOREIGN KEY (`id_prospecto`) REFERENCES `prospectos` (`id_prospectos`),
@@ -697,34 +697,34 @@ ALTER TABLE `movimientos`
   ADD CONSTRAINT `movimientos_ibfk_3` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
 
 --
--- Filtros para la tabla `prospectos`
+-- Constraints for table `prospectos`
 --
 ALTER TABLE `prospectos`
   ADD CONSTRAINT `prospectos_ibfk_1` FOREIGN KEY (`estado_actual`) REFERENCES `estados` (`id_estado`),
   ADD CONSTRAINT `prospectos_ibfk_2` FOREIGN KEY (`vendedor`) REFERENCES `usuarios` (`id_usuario`);
 
 --
--- Filtros para la tabla `rol_estprosp_permitidos`
+-- Constraints for table `rol_estprosp_permitidos`
 --
 ALTER TABLE `rol_estprosp_permitidos`
   ADD CONSTRAINT `rol_estprosp_permitidos_ibfk_1` FOREIGN KEY (`id_rol`) REFERENCES `roles` (`id_rol`),
   ADD CONSTRAINT `rol_estprosp_permitidos_ibfk_2` FOREIGN KEY (`id_estado_permitido`) REFERENCES `estados` (`id_estado`);
 
 --
--- Filtros para la tabla `seguimientos`
+-- Constraints for table `seguimientos`
 --
 ALTER TABLE `seguimientos`
   ADD CONSTRAINT `seguimientos_ibfk_1` FOREIGN KEY (`id_prospecto`) REFERENCES `prospectos` (`id_prospectos`),
   ADD CONSTRAINT `seguimientos_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
 
 --
--- Filtros para la tabla `telefonos_pros`
+-- Constraints for table `telefonos_pros`
 --
 ALTER TABLE `telefonos_pros`
   ADD CONSTRAINT `telefonos_pros_ibfk_1` FOREIGN KEY (`id_prospecto`) REFERENCES `prospectos` (`id_prospectos`);
 
 --
--- Filtros para la tabla `usuarios`
+-- Constraints for table `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`id_agencia`) REFERENCES `agencias` (`id_agencia`),
