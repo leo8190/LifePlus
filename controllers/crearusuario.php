@@ -5,6 +5,7 @@
 require '../fw/fw.php';
 require '../models/Agencias.php';
 require '../models/Roles.php';
+require '../models/Usuarios.php';
 require '../views/FormAltaUsuario.php';
 require '../views/ListaUsuarios.php';
 require '../views/AltaUsuarioOk.php';

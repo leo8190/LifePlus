@@ -5,6 +5,7 @@
 require '../fw/fw.php';
 require '../models/Localidades.php';
 require '../models/Prospectos.php';
+require '../models/Agencias.php';
 require '../views/FormProspecto.php';
 require '../views/FormAltaProspecto.php';
 require '../views/ListaProspectos.php';
@@ -23,7 +24,13 @@ if(isset($_POST['ok'])) {
 	// var_dump($_POST['num_doc']);
 	// var_dump($_POST['sexo']);
 
-	$id=(new Prospectos)->alta($_POST['nom'],$_POST['ape'],$_POST['email'],$_POST['num_doc'],$_POST['sexo'],$_POST['tel']);
+	$agencia = (new Agencias)->getAgenciaByLocalidad($_POST['localidad']);	
+	$vendedores = (new Usuarios)->getVendedoresByAgencia($agencia['id_agencia']);
+
+	$vendedorAsignado = $vendedores[array_rand($vendedores)];
+	$vendedorAsignadoID = $vendedorAsignado['id_usuario'];
+
+	$id=(new Prospectos)->alta($_POST['nom'],$_POST['ape'],$_POST['email'],$_POST['num_doc'],$_POST['sexo'],$_POST['tel'],$vendedorAsignadoID,$_POST['localidad'] );
 
 $pr = new Prospectos;
 $se = new Seguimiento;

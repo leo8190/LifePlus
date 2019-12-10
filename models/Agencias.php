@@ -1,7 +1,7 @@
 <?php
 
 // models/Agencias.php
-require '../models/Usuarios.php';
+// require '../models/Usuarios.php';
 
 class Agencias extends Model {
 	
@@ -78,6 +78,16 @@ class Agencias extends Model {
 						  WHERE id_agencia=".$id_agencia.")"); 
 		
 		return $this->db->fetchAll();						  
+	}
+
+	public function getAgenciaByLocalidad($id_loc){
+		if (!isset($id_loc)) die('error 1, models agencia');
+		if(!is_numeric($id_loc)) die("error2, models agencia");
+		if($id_loc < 0) die('error3 models agencia');		
+		
+		$this->db->query("SELECT a.nombre as nombre,a.id_agencia id_agencia FROM agencias a JOIN localidad l 	
+			ON a.id_agencia = l.id_agencia WHERE l.id=".$id_loc);
+		return $this->db->fetch(); 
 	}
 
 

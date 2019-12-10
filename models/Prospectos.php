@@ -133,7 +133,7 @@ class Prospectos extends Model {
 		return $this->db->fetchAll();
 	}
 
-	public function alta($nombre,$apellido,$email,$dni,$sexo,$tel) {
+	public function alta($nombre,$apellido,$email,$dni,$sexo,$tel, $vendedor, $localidad) {
 
 		if (!isset($nombre)) die('error25 models prospectos');
 		if(strlen($nombre) < 2) die("error26 models prospectos");
@@ -171,10 +171,18 @@ class Prospectos extends Model {
 		if(!is_numeric($tel)) die("error37 models prospectos");
 		if($tel < 2) die('error38 models prospectos');
 
+		if (!isset($vendedor)) die('error39 models prospectos');
+		if(!is_numeric($vendedor)) die("error40 models prospectos");
+		if($vendedor < 0) die('error41 models prospectos');
+
+		if (!isset($localidad)) die('error42 models prospectos');
+		if(!is_numeric($localidad)) die("error43 models prospectos");
+		if($localidad < 0) die('error44 models prospectos');
+
 		//Fecha actual
 		$fecha_actual = date('y')."-".date('m')."-".date('d');
 
-		$this->db->query("INSERT INTO prospectos (nombre,apellido,email,dni,sexo,fecha_alta,estado_actual) values ('$nombre','$apellido','$email',$dni,'$sexo',now(), 1)"); 
+		$this->db->query("INSERT INTO prospectos (nombre,apellido,email,dni,sexo,fecha_alta,estado_actual, vendedor, localidad) values ('$nombre','$apellido','$email',$dni,'$sexo',now(), 1, $vendedor, $localidad)"); 
 		$id=$this->db->insert_id();
 		$this->db->query("INSERT INTO integrantes (nombre,apellido,dni,sexo,id_prospecto) values ('$nombre','$apellido',$dni,'$sexo',$id)");
 		$this->db->query("INSERT INTO telefonos_pros (telefono,id_prospecto) values ($tel,$id)");

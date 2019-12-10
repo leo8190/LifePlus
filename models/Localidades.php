@@ -26,7 +26,7 @@ class Localidades extends Model
 		$this->db->query("UPDATE localidad
 						  SET id_agencia ='$id_agencia'
 						  WHERE id =".$id_loc);
-	}
+	}	
 
 
 }

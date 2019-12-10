@@ -122,8 +122,8 @@
 					</div>
 					</form>
 					
-					<!---<input  type="hidden" name="est_disponibles" 
-					value="<?=$this->est_disp?>">--->
+					<input  type="hidden" name="est_disponibles" 
+					value="<?=$this->est_disp?>">
 	
 				</div>
 		</div>
