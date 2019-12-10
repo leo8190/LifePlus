@@ -46,7 +46,7 @@ class Movimiento extends model
 		if(!$p->existeProspecto($id_prospecto)) die('error mov existe pr');
 		$pr=$id_prospecto;
 
-		$this->db->query("SELECT m.id_prospecto, DATE_FORMAT (m.fecha,
+		$this->db->query("SELECT m.id_prospecto, DATE_FORMAT(m.fecha,
 			'%d/%m/%Y') as fecha, m.estado_nuevo,m.id_usuario, e.nombre as est_nombre, r.nombre as rol_nombre, u.nombre_usuario 
 			FROM movimientos m JOIN estados e ON e.id_estado=m.estado_nuevo 
 			JOIN usuarios u ON m.id_usuario=u.id_usuario 

@@ -8,7 +8,7 @@ class Seguimiento extends Model {
 		//if(!is_numeric($num_prospecto)) die("error2 models seguimiento");
 		if($num_prospecto < 1) die('error3 models seguimiento');
 
-			$this->db->query("SELECT s.id_seguimiento, DATE_FORMAT (s.fecha,
+			$this->db->query("SELECT s.id_seguimiento, DATE_FORMAT(s.fecha,
 			'%d/%m/%Y') as fecha,s.descripcion,s.id_usuario,l.nombre, l.apellido, r.nombre as nombre_rol FROM seguimientos s JOIN usuarios u ON u.id_usuario=s.id_usuario JOIN legajos l ON l.id_legajo=u.id_legajo JOIN roles r ON r.id_rol=u.id_rol WHERE s.id_prospecto=" . $num_prospecto);
 		return $this->db->fetchAll();
 	}

@@ -24,7 +24,7 @@ class Prospectos extends Model {
 		if($num_prospecto < 1) die('error3 models prospectos');	
 
 		$this->db->query("SELECT p.id_prospectos,p.estado_actual, a.nombre agencia, le.nombre vendedor, e.nombre estado, l.nombre localidad, p.nombre, 
-			p.apellido, p.email, DATE_FORMAT (p.fecha_alta,
+			p.apellido, p.email, DATE_FORMAT(p.fecha_alta,
 			'%d/%m/%Y') as fecha_alta , p.sexo 
 			FROM prospectos p 
 			LEFT JOIN estados e ON e.id_estado = p.estado_actual 
@@ -95,7 +95,7 @@ class Prospectos extends Model {
 				$estados = implode("','",$est);		
 				//var_dump(array_values($est));
 
-				$this->db->query("SELECT p.id_prospectos id_prospectos, p.nombre nombre, p.apellido apellido, e.nombre estado, DATE_FORMAT (p.fecha_alta,
+				$this->db->query("SELECT p.id_prospectos id_prospectos, p.nombre nombre, p.apellido apellido, e.nombre estado, DATE_FORMAT(p.fecha_alta,
 			'%d/%m/%Y') as fecha_alta FROM prospectos p LEFT JOIN estados e ON p.estado_actual =e.id_estado WHERE p.estado_actual IN(" . $estados .");");
 
 				return $this->db->fetchAll();
@@ -114,7 +114,7 @@ class Prospectos extends Model {
 					$estados = implode("','",$est);		
 					//var_dump(array_values($est));
 
-					$this->db->query("SELECT p.id_prospectos id_prospectos, p.nombre nombre, p.apellido apellido, e.nombre estado, DATE_FORMAT (p.fecha_alta,
+					$this->db->query("SELECT p.id_prospectos id_prospectos, p.nombre nombre, p.apellido apellido, e.nombre estado, DATE_FORMAT(p.fecha_alta,
 			'%d/%m/%Y') as fecha_alta FROM prospectos p JOIN estados e ON p.estado_actual =e.id_estado WHERE p.vendedor=".$id_usuario." AND (p.estado_actual IN (".$estados."));");
 						return $this->db->fetchAll();
 				}
@@ -128,7 +128,7 @@ class Prospectos extends Model {
 		if($id_rol < 1) die('error24 models prospectos');
 
 		$est_permitidos = $auxEstado->getByUser($id_user);
-		$this->db->query("SELECT p.id_prospectos as id_prospectos, p.nombre as nombre, p.apellido as apellido, e.nombre as estado, DATE_FORMAT (p.fecha_alta,
+		$this->db->query("SELECT p.id_prospectos as id_prospectos, p.nombre as nombre, p.apellido as apellido, e.nombre as estado, DATE_FORMAT(p.fecha_alta,
 			'%d/%m/%Y') as fecha_alta from prospectos p LEFT JOIN estados e ON   WHERE p.id_estado= (SELECT p.id_prospectos FROM prospectos p WHERE p.estado_actual IN (SELECT re.id_estado_permitido FROM rol_estprosp_permitidos re JOIN usuarios u ON u.id_rol=".$id_rol.";) ORDER BY p.fecha_alta DESC");
 		return $this->db->fetchAll();
 	}
