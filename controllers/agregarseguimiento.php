@@ -5,6 +5,7 @@ require '../models/Prospectos.php';
 require '../views/AgregarSeguimiento.php';
 require '../views/FormProspecto.php';
 
+//cambio
 
 if(isset($_POST['agregar_comentario'])){
 	if (!isset($_POST['id_pr'])) die("no se envio un id prosp");
