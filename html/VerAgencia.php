@@ -19,7 +19,7 @@
 				<form onsubmit="return confirm('¿Esta seguro de la modificación?');" action="../controllers/veragencias.php" method="POST">
 					<tr>
 					<td><?= $this->agencias['id_agencia']?></td>
-					<td><input name="nombre_ag"  id="nombre_ag" onchange="cambia()"
+					<td><input name="nombre_ag"  id="nombre_ag" oninput="cambia()"
 						value="<?= $this->agencias['nombre']?>">
 					</td>
 					<td>
