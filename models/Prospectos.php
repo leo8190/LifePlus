@@ -12,7 +12,7 @@ class Prospectos extends Model {
 	
 
 	public function getTodos() {
-		$this->db->query("SELECT p.id_prospectos as id_prospectos, p.nombre as nombre, p.apellido as apellido, e.nombre as estado,DATE_FORMAT (p.fecha_alta,
+		$this->db->query("SELECT p.id_prospectos as id_prospectos, p.nombre as nombre, p.apellido as apellido, e.nombre as estado,DATE_FORMAT(p.fecha_alta,
 			'%d/%m/%Y') as fecha_alta from prospectos p LEFT JOIN estados e ON p.estado_actual =e.id_estado ORDER BY p.fecha_alta DESC");
 		return $this->db->fetchAll();
 	}
@@ -102,7 +102,7 @@ class Prospectos extends Model {
 			}
 				if ($id_rol==3) {
 
-					$this->db->query("SELECT p.localidad localidad, p.id_prospectos id_prospectos, p.nombre nombre, p.apellido apellido, e.nombre estado, DATE_FORMAT (p.fecha_alta,
+					$this->db->query("SELECT p.localidad localidad, p.id_prospectos id_prospectos, p.nombre nombre, p.apellido apellido, e.nombre estado, DATE_FORMAT(p.fecha_alta,
 			'%d/%m/%Y') as fecha_alta FROM prospectos p LEFT JOIN estados e ON p.estado_actual =e.id_estado JOIN localidad l ON l.id=p.localidad WHERE l.id_agencia=".$id_agencia.";");
 
 				return $this->db->fetchAll();
