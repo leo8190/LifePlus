@@ -4,6 +4,7 @@
 
 require '../fw/fw.php';
 require '../models/Agencias.php';
+require '../models/Usuarios.php';
 require '../models/Estados.php';
 require '../models/Roles.php';
 require '../views/FormEdicionUsuario.php';
