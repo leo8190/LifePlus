@@ -16,7 +16,7 @@
 					<input id="s"type="text" disabled name="sexo" value=<?=$this->pr['sexo']?> ></div>
 				<br/><br/>
 				<div class="div_in"><label for="ag">Agencia:</label>
-					<input id="ag"type="text" name="agencia" value=<?=$this->pr['agencia']?> ></div>
+					<input id="ag"type="text" name="agencia" disabled value=<?=$this->pr['agencia']?> ></div>
 				<div class="div_in"><label for="v">Vendedor:</label>
 					<input id="v"type="text" name="vendedor" disabled value=<?=$this->pr['vendedor']?>></div>
 				<div class="div_in"><label for="fech_a">Fecha Alta:</label>
