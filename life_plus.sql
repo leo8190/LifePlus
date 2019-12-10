@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2019 at 05:17 AM
+-- Generation Time: Dec 10, 2019 at 05:33 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -30,22 +30,23 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `agencias` (
   `id_agencia` int(5) NOT NULL,
-  `nombre` varchar(50) COLLATE latin1_spanish_ci NOT NULL
+  `nombre` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
+  `habilitada` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
 -- Dumping data for table `agencias`
 --
 
-INSERT INTO `agencias` (`id_agencia`, `nombre`) VALUES
-(1, 'primeraa'),
-(2, 'Segunda'),
-(3, 'Tercera'),
-(4, 'Cuarta'),
-(5, 'Quinta'),
-(6, 'Octava'),
-(7, 'Sexta'),
-(8, 'lallalalaa');
+INSERT INTO `agencias` (`id_agencia`, `nombre`, `habilitada`) VALUES
+(1, 'primeraa', 1),
+(2, 'Segunda', 1),
+(3, 'Tercera', 1),
+(4, 'Cuarta', 1),
+(5, 'Quinta', 1),
+(6, 'Octava', 1),
+(7, 'Sexta', 1),
+(8, 'lallalalaa', 1);
 
 -- --------------------------------------------------------
 
@@ -242,6 +243,14 @@ CREATE TABLE `movimientos` (
   `id_usuario` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
+--
+-- Dumping data for table `movimientos`
+--
+
+INSERT INTO `movimientos` (`id_movimiento`, `descripcion`, `id_prospecto`, `fecha`, `estado_nuevo`, `id_usuario`) VALUES
+(1, '', 15, '2019-12-10', 5, 25),
+(2, '', 1, '2019-12-10', 1, 21);
+
 -- --------------------------------------------------------
 
 --
@@ -266,7 +275,7 @@ CREATE TABLE `prospectos` (
 --
 
 INSERT INTO `prospectos` (`id_prospectos`, `vendedor`, `estado_actual`, `nombre`, `apellido`, `email`, `dni`, `fecha_alta`, `sexo`, `localidad`) VALUES
-(1, 1, 5, 'Diego Armando', 'Maradona', 'eldiegote@gmail.com', 14276579, '2018-11-05', 'M', 1),
+(1, 1, 1, 'Diego Armando', 'Maradona', 'eldiegote@gmail.com', 14276579, '2018-11-05', 'M', 1),
 (2, 1, 1, 'Mercedes', 'Luna', 'mluna@gmail.com', 28109339, '2018-11-09', 'F', 1),
 (3, 2, 2, 'Nadia', 'Gonzalez', 'ngonzal@gmail.com', 32115562, '2018-06-22', 'F', 4),
 (4, 1, 1, 'Julio', 'Tevez', 'tevezl@gmail.com', 92113562, '2018-06-17', 'M', 4),
@@ -277,7 +286,7 @@ INSERT INTO `prospectos` (`id_prospectos`, `vendedor`, `estado_actual`, `nombre`
 (12, 1, 1, 'Fran', 'doi', 'fernando.umb@gmail.com', 40090118, '2018-11-07', 'M', 1),
 (13, 0, 1, 'Leonardo', 'Diaz', 'leo@gmail.com', 45123456, '2018-11-14', 'M', 0),
 (14, 0, 11, 'Pablo', 'Resin', 'pablo@gmail.com', 30154123, '2018-11-14', 'M', 0),
-(15, 0, 9, 'Araceli', 'Diazes', 'ara@gmail.com', 33456781, '2018-11-14', 'F', 0),
+(15, 0, 5, 'Araceli', 'Diazes', 'ara@gmail.com', 33456781, '2018-11-14', 'F', 0),
 (16, 0, 5, 'Claudio', 'Vazquez', 'clau@gmail.com', 45194875, '2018-11-14', 'F', 0),
 (17, 0, 1, 'Pedro', 'Martinez', 'pedro@gmail.com', 45194623, '2018-11-14', 'M', 0),
 (18, 0, 1, 'Patricia', 'Rolon', 'pato@hotmail.com', 12456364, '2018-11-15', 'F', 0),
@@ -418,7 +427,9 @@ INSERT INTO `seguimientos` (`id_seguimiento`, `fecha`, `descripcion`, `id_prospe
 (3, '2019-04-06', 'hola', 1, 24),
 (4, '2019-04-06', 'hola', 1, 24),
 (5, '2019-04-06', 'Hola', 1, 24),
-(6, '2019-04-08', 'Hola', 5, 21);
+(6, '2019-04-08', 'Hola', 5, 21),
+(7, '2019-12-10', 'Ok', 15, 25),
+(8, '2019-12-10', 'Pasa a activo por correcto', 1, 21);
 
 -- --------------------------------------------------------
 
@@ -632,7 +643,7 @@ ALTER TABLE `localidad`
 -- AUTO_INCREMENT for table `movimientos`
 --
 ALTER TABLE `movimientos`
-  MODIFY `id_movimiento` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_movimiento` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `prospectos`
@@ -650,7 +661,7 @@ ALTER TABLE `provincias`
 -- AUTO_INCREMENT for table `seguimientos`
 --
 ALTER TABLE `seguimientos`
-  MODIFY `id_seguimiento` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_seguimiento` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `telefonos_pros`
