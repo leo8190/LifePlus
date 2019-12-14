@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2019 at 12:29 PM
+-- Generation Time: Dec 15, 2019 at 12:09 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -48,6 +48,19 @@ INSERT INTO `agencias` (`id_agencia`, `nombre`, `habilitada`) VALUES
 (7, 'Septima', 1),
 (8, 'Octava', 1),
 (9, 'Novena', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `archivos_adjuntos`
+--
+
+CREATE TABLE `archivos_adjuntos` (
+  `id` int(11) NOT NULL,
+  `nombre_archivo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `fecha_subido` datetime NOT NULL,
+  `estado` enum('1','0') COLLATE utf8_unicode_ci NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -148,37 +161,38 @@ CREATE TABLE `integrantes` (
 --
 
 INSERT INTO `integrantes` (`id_integrante`, `nombre`, `apellido`, `dni`, `sexo`, `id_prospecto`, `fecha_nacimiento`, `tipo_ingresante`) VALUES
-(1, 'Melina', 'Barosi', 40090200, 'M', 31, '1988-02-03', 0),
-(2, 'Melisa', 'Barrasa', 40090200, 'M', 32, '1988-02-03', 0),
-(3, 'Juan', 'Perez', 15064234, 'M', 33, '1988-02-03', 0),
-(4, 'Lalo', 'Mir', 13023593, 'M', 34, '1988-02-03', 0),
-(5, 'Carlos', 'Tevezi', 345325, 'M', 35, '1988-02-03', 0),
-(6, 'Pabloe', 'Lopeao', 125125, 'M', 36, '1988-02-03', 0),
+(1, 'Melina', 'Barosi', 40090200, 'M', 31, '1988-02-03', 1),
+(2, 'Melisa', 'Barrasa', 40090200, 'M', 32, '1988-02-03', 2),
+(3, 'Juan', 'Perez', 15064234, 'M', 33, '1988-02-03', 3),
+(4, 'Lalo', 'Mir', 13023593, 'M', 34, '1988-02-03', 1),
+(5, 'Carlos', 'Tevezi', 345325, 'M', 35, '1988-02-03', 3),
+(6, 'Pabloe', 'Lopeao', 125125, 'M', 36, '1988-02-03', 2),
 (7, 'Walter', 'Mazas', 414214355, 'M', 37, '1988-02-03', 1),
 (8, 'Antonella', 'Saveedra', 33545235, 'F', 38, '1988-02-16', 1),
-(9, 'Polola', 'Zato', 14564564, 'F', 39, '1988-02-03', 0),
+(9, 'Polola', 'Zato', 14564564, 'F', 39, '1988-02-03', 2),
 (10, 'Asturias', 'Solan', 325532, 'F', 40, '1988-02-03', 2),
 (11, 'Marina', 'Maros', 4124124, 'F', 41, '1988-02-03', 2),
 (12, 'Federico', 'Sanez', 32553, 'M', 42, '1988-02-03', 1),
 (13, 'Adriana', 'Malvin', 3333, 'M', 43, '1988-02-03', 2),
 (14, 'Walter', 'Mandals', 333322234, 'M', 44, '1988-02-17', 2),
-(15, 'Leonardo', 'Ewene', 3254235, 'M', 45, '1988-02-03', 0),
+(15, 'Leonardo', 'Ewene', 3254235, 'M', 45, '1988-02-03', 1),
 (16, 'Dario', 'Manues', 122223245, 'M', 46, '1988-03-12', 3),
 (17, 'Hector', 'Mandioca', 6476332, 'M', 47, '1988-02-15', 3),
 (18, 'Fernando', 'Malevo', 232332324, 'M', 48, '1987-10-06', 1),
 (19, 'Reteri', 'Salvador', 35235553, 'M', 49, '1988-05-14', 2),
 (20, 'Ernesto', 'Ferradas', 32423435, 'M', 50, '1988-02-02', 3),
-(21, 'Pedros', 'Lalos', 978696, 'M', 51, '1988-02-03', 0),
-(22, 'Lorenzo', 'Lamas', 325325, 'M', 52, '1988-02-03', 0),
-(23, 'Sergio', 'Manuel', 124234124, 'M', 1, '0000-00-00', 2),
-(24, 'Mariano', 'Paez', 97869876, 'M', 2, '0000-00-00', 1),
-(25, 'Gabriela', 'Marquez', 78967896, 'F', 2, '0000-00-00', 2),
-(26, 'Claudia', 'Villa', 3252359, 'F', 2, '0000-00-00', 1),
-(27, 'Sabrina', 'Fernandez', 12355123, 'F', 2, '0000-00-00', 2),
-(28, 'Gabriel', 'Martinez', 2147483647, 'M', 2, '0000-00-00', 1),
-(29, 'Sergio', 'Sara', 235235235, 'M', 1, '0000-00-00', 1),
-(30, 'Pablo', 'Martinez', 123414, 'M', 1, '0000-00-00', 1),
-(31, 'Carlos', 'Apollonio', 235235235, 'M', 1, '1989-01-26', 1);
+(21, 'Pedros', 'Lalos', 978696, 'M', 51, '1988-02-03', 3),
+(22, 'Lorenzo', 'Lamas', 325325, 'M', 52, '1988-02-03', 2),
+(23, 'Sergio', 'Manuel', 124234124, 'M', 1, '1988-04-01', 2),
+(24, 'Mariano', 'Paez', 97869876, 'M', 2, '1988-04-09', 1),
+(25, 'Gabriela', 'Marquez', 78967896, 'F', 2, '1988-04-03', 2),
+(26, 'Claudia', 'Villa', 3252359, 'F', 2, '1987-05-05', 1),
+(27, 'Sabrina', 'Fernandez', 12355123, 'F', 2, '1987-05-03', 2),
+(28, 'Gabriel', 'Martinez', 2147483647, 'M', 2, '1987-05-02', 1),
+(29, 'Sergio', 'Sara', 235235235, 'M', 1, '1987-05-01', 1),
+(30, 'Pablo', 'Martinez', 123414, 'M', 1, '1987-05-02', 1),
+(31, 'Carlos', 'Apollonio', 235235235, 'M', 1, '1989-01-26', 1),
+(32, 'Claudio', 'Saenz', 124235235, 'M', 5, '1989-01-10', 2);
 
 -- --------------------------------------------------------
 
@@ -201,15 +215,9 @@ CREATE TABLE `legajos` (
 
 INSERT INTO `legajos` (`id_legajo`, `nombre`, `apellido`, `email`, `dni`, `telefono`) VALUES
 (2, 'Fernando', 'Figueroa', 'ffigueroa@gmail.com', 35456789, 15456123),
-(4, 'Leonardo', 'Apollonio', 'leonardo@gmail.com', 33456123, 15456128),
-(5, 'Panlo', 'Retero', 'poesr@gmail.com', 54654654, 5484856),
 (6, 'Pablit', 'Reter', 'poesr@gmail.co', 54654651, 5484851),
-(7, 'Retesi', 'Paloet', 'poesr@gmail.com', 54654654, 5484856),
-(8, 'Lolo', 'Lopez', 'lo@gmail.com', 4565484, 468468),
-(9, 'Tamara', 'Polo', 'loas@gmail.com', 45151681, 546848),
 (10, 'Tereno', 'Paletez', 'loas@gmail.com', 45151681, 546848),
 (11, 'Gabrieltet', 'Errote', 'loas@gmail.com', 45151681, 546848),
-(12, 'Patricia', 'Paredes', 'l@gmail.com', 546848, 465484),
 (30, 'Francisco', 'Doi', 'franjdoi@gmail.com', 40090118, 1140572996),
 (32, 'Gabriel', 'Meno', 'ascae@mail.com', 2147483647, 2147483647),
 (33, 'Florencia', 'Ferrari', 'florferrari@outlook.com', 38023125, 1142699875),
@@ -291,7 +299,8 @@ INSERT INTO `movimientos` (`id_movimiento`, `descripcion`, `id_prospecto`, `fech
 (2, '', 1, '2019-12-10', 1, 21),
 (3, '', 5, '2019-12-10', 8, 34),
 (4, '', 47, '2019-12-10', 6, 21),
-(5, '', 47, '2019-12-10', 8, 21);
+(5, '', 47, '2019-12-10', 8, 21),
+(6, '', 38, '2019-12-14', 9, 36);
 
 -- --------------------------------------------------------
 
@@ -351,7 +360,7 @@ INSERT INTO `prospectos` (`id_prospectos`, `vendedor`, `estado_actual`, `nombre`
 (35, 28, 1, 'Carlos', 'Tevezi', '325235@gfwegfwe.com', 345325, '2019-12-10', 'M', 0),
 (36, 1, 1, 'Pabloe', 'Lopeao', '1251@f32r.com', 125125, '2019-12-10', 'M', 0),
 (37, 1, 1, 'Marito', 'Saranda', 'saranda@gmail.com', 333252352, '2019-12-10', 'M', 4),
-(38, 32, 1, 'Sebastian', 'Perez', 'perez@gmail.com', 335646356, '2019-12-10', 'M', 3),
+(38, 32, 9, 'Sebastian', 'Perez', 'perez@gmail.com', 335646356, '2019-12-10', 'M', 3),
 (39, 32, 44, 'Polola', 'Zato', 'leonardo233333333322@gmail.com', 14564564, '2019-12-10', 'F', 2),
 (40, 28, 6, 'Leonela', 'Arroti', 'leonela@gmail.com', 354355235, '2019-12-10', 'F', 2),
 (41, 29, 5, 'Marta', 'Pelote', 'leonardo23322@gma222il.com', 44332244, '2019-12-10', 'F', 2),
@@ -492,7 +501,8 @@ INSERT INTO `seguimientos` (`id_seguimiento`, `fecha`, `descripcion`, `id_prospe
 (8, '2019-12-10', 'Pasa a activo por correcto', 1, 21),
 (9, '2019-12-10', 'Falta documentacion necesaria', 5, 34),
 (10, '2019-12-10', 'Queda pendiente su ingreso', 47, 21),
-(11, '2019-12-10', 'Falta Documentacion de Salud Quirurgica', 47, 21);
+(11, '2019-12-10', 'Falta Documentacion de Salud Quirurgica', 47, 21),
+(12, '2019-12-14', 'Debe realizarse auditoria por antecedentes de oper', 38, 36);
 
 -- --------------------------------------------------------
 
@@ -554,20 +564,19 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `id_rol`, `id_agencia`, `id_legajo`, `password`, `estado`, `nombre_usuario`) VALUES
-(0, 2, 6, 11, 'tamara', 1, 'tamara'),
-(1, 2, 6, 10, 'tamara', 1, 'tamara'),
+(0, 2, 6, 11, 'gabrieltet', 1, 'gabrieltet'),
+(1, 2, 6, 10, 'tereno', 1, 'tereno'),
 (2, 2, 2, 2, 'fernando', 1, 'fernando'),
 (3, 1, 1, 6, 'pablo', 1, 'pablo'),
 (21, 1, 1, 30, 'francisco', 1, 'francisco'),
-(23, 1, 1, 32, 'gabriel', 1, 'gabriel'),
 (24, 3, 1, 33, 'florencia', 1, 'florencia'),
 (25, 4, 5, 34, 'leonardo', 1, 'leonardo'),
 (26, 5, 2, 32, 'gabriel', 1, 'gabriel'),
 (28, 2, 5, 35, 'walter', 1, 'walter'),
-(29, 2, 3, 36, 'rolando', 1, 'rolando'),
-(30, 2, 1, 37, 'ramiro', 1, 'ramiro'),
+(29, 2, 3, 36, 'pablo', 1, 'pablo'),
+(30, 2, 1, 37, 'raul', 1, 'raul'),
 (31, 2, 5, 38, 'claudio', 1, 'claudio'),
-(32, 2, 6, 39, 'perlas', 1, 'perlas'),
+(32, 2, 6, 39, 'perla', 1, 'perla'),
 (33, 3, 6, 40, 'manuel', 1, 'manuel'),
 (34, 6, 9, 41, 'ingrid', 1, 'ingrid'),
 (35, 5, 6, 42, 'patricia', 1, 'patricia'),
@@ -585,6 +594,12 @@ INSERT INTO `usuarios` (`id_usuario`, `id_rol`, `id_agencia`, `id_legajo`, `pass
 --
 ALTER TABLE `agencias`
   ADD PRIMARY KEY (`id_agencia`);
+
+--
+-- Indexes for table `archivos_adjuntos`
+--
+ALTER TABLE `archivos_adjuntos`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `cambios_estado`
@@ -691,6 +706,12 @@ ALTER TABLE `agencias`
   MODIFY `id_agencia` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
+-- AUTO_INCREMENT for table `archivos_adjuntos`
+--
+ALTER TABLE `archivos_adjuntos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `cambios_estado`
 --
 ALTER TABLE `cambios_estado`
@@ -706,7 +727,7 @@ ALTER TABLE `estados`
 -- AUTO_INCREMENT for table `integrantes`
 --
 ALTER TABLE `integrantes`
-  MODIFY `id_integrante` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id_integrante` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `legajos`
@@ -724,7 +745,7 @@ ALTER TABLE `localidad`
 -- AUTO_INCREMENT for table `movimientos`
 --
 ALTER TABLE `movimientos`
-  MODIFY `id_movimiento` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_movimiento` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `prospectos`
@@ -742,7 +763,7 @@ ALTER TABLE `provincias`
 -- AUTO_INCREMENT for table `seguimientos`
 --
 ALTER TABLE `seguimientos`
-  MODIFY `id_seguimiento` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_seguimiento` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `telefonos_pros`

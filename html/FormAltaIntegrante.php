@@ -153,8 +153,9 @@ function cambia(){
 			 		<label for="tipo_ingresante"> Parentesco: </label>
 			 		<select id="tipo_ingresante" name="tipo_ingresante" oninput="cambia()" required>
 			 				<option value="0">Seleccionar</option>
-			 				<option value="1">Cónyuge</option>
-			 				<option value="2">Hijo/a</option>
+			 				<option value="1">Titular del plan</option>
+			 				<option value="2">Cónyuge</option>
+							<option value="3">Hijo/a</option>
 			 		</select>
 			 	</div>		
                  <div class="div_in">

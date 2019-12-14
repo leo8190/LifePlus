@@ -60,8 +60,8 @@
 					<th>N° doc</th>
 					<th>Sexo</th>
 					<th>Fecha nacimiento</th>
-					<th>Modificar.</th>
-					<th>Borrar</th>
+					<!-- <th>Modificar.</th>
+					<th>Borrar</th> -->
 				</thead>
 				<tbody>
 					<?php foreach($this->int_pr as $i){ ?>
@@ -72,12 +72,35 @@
 					<td><?= $i['dni']?></td>
 					<td><?= $i['sexo'] ?></td>
 					<td><?= $i['fech_nac'] ?></td>
-					<td><input id="modif" type="image" name="modif" src="../img/pluma.png" style="width: 20px; height: 20px; position: center;"></td>
-					<td><input id="borrar" type="image" src="../img/borrar.jpg" style="width: 20px; height: 20px; position: center;"></td>
+					<!-- <td><input id="modif" type="image" name="modif" src="../img/pluma.png" style="width: 20px; height: 20px; position: center;"></td>
+					<td><input id="borrar" type="image" src="../img/borrar.jpg" style="width: 20px; height: 20px; position: center;"></td> -->
 					</tr>
 					<?php } ?>
 				</tbody>
-			</table>
+				</table>
+				<div id="sub_titulo">Subir archivo adjunto: </div>
+				<!-- El tipo de codificación de datos, enctype, DEBE especificarse como sigue -->
+				<form action="upload_file.php" method="post" enctype="multipart/form-data">
+					<input type="file" name="file" size="50" />
+					<input type="hidden" name="id_prospecto" value="<?= $this->pr['id_prospectos']?>"/>
+					<input style="margin-top:-5px;" type="submit" value="Upload" class="boton" />
+				</form>
+
+
+				<div id="sub_titulo">Descargar archivos adjuntos: </div>
+				<?php 
+					if ($handle = opendir('../attached_files/')) 
+					{
+						while (false !== ($entry = readdir($handle))) 
+						{
+							if ($entry != "." && $entry != "..") 
+							{
+								echo "<a href='download.php?file=".$entry."'>".$entry."</a> <br> </br>"; 
+							}
+    					}
+    				closedir($handle);
+					}	
+				?>
 			<br>
 
 				<div id="botones">
