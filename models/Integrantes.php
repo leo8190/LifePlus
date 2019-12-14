@@ -124,12 +124,17 @@ class Integrantes extends Model {
 		$fn = $this->db->escapeString($fn);
 		$fn	= str_replace('%', '\%', $fn);
 		$fn	= str_replace('_', '\_', $fn);
+		$fnDate = date('Y-m-d', strtotime($fn));
+
+		// $fnArray = explode("-","$fn");
+		
+		// $fnPhpDate = date("$fnArray[2]-$fnArray[1]-$fnArray[0]");
 
 		if (!isset($tipo)) die('error1');
 		if(!is_numeric($tipo)) die("error1");
 		if($tipo< 1) die("error1");
 
-		$this->db->query("INSERT INTO integrantes (nombre,apellido,dni,sexo,fecha_nacimiento,id_prospecto,tipo_ingresante) values ('$n','$a',$d,'$s','$f',$id_p,$t)");
+		$this->db->query("INSERT INTO integrantes (nombre,apellido,dni,sexo,id_prospecto,fecha_nacimiento,tipo_ingresante) values ('$n','$a','$d','$s' ,$id_p,'$fnDate',$tipo)");
 		return true;
 	}
 }

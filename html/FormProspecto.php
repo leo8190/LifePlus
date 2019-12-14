@@ -104,10 +104,12 @@
 					</div>
 					</form>
 
-					<form method="POST" action="../controllers/hola.php">
+					<form method="POST" action="../controllers/agregarintegrante.php">
 					<div class="div_in">
 					<input type="submit" name="cambiar_estado" class="boton"
 					value="AGREGAR INTEGRANTES" >
+					<input type="hidden" name="id_pr" 
+					value="<?=$this->pr['id_prospectos']?>">
 					</div>
 					</form>
 

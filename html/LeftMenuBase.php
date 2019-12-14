@@ -2,14 +2,18 @@
 <html lang="es">
 <head>
 	<meta charset="utf-8">
- 	<script src="../js/jquery-3.3.1.min.js"></script>
+ 	<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
  	<script type="text/javascript" src="../DataTables/datatables.js"></script>
+	<script type="text/javascript" src="../js/es-us.js"></script>
+	<script type="text/javascript" src="../js/tempusdominus-bootstrap-4.min.js"></script>
 	<script>
 		$(document).ready( function () {
     			$('#table_id').DataTable();
 		} );
 	</script>
 	<link rel="stylesheet" type="text/css" href="../css/stylehome.css">
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
  	<link rel="stylesheet" type="text/css" href="../DataTables/datatables.css"/>
 	<title> Home </title>
 </head>

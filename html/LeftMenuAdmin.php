@@ -2,15 +2,27 @@
 <html lang="es">
 <head>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="../css/stylehome.css">
- 	<link rel="stylesheet" type="text/css" href="../DataTables/datatables.css"/>
- 	<script src="../js/jquery-3.3.1.min.js"></script>
- 	<script type="text/javascript" src="../DataTables/datatables.js"></script>
+ 	<!-- <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="../js/moment-with-locales.min.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../DataTables/datatables.js"></script>
+	<script type="text/javascript" src="../js/bootstrap-datetimepicker.min.js"></script>
+   <link rel="stylesheet" type="text/css" href="../css/stylehome.css">
+   <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../DataTables/datatables.css"/>
+   <link rel="stylesheet" type="text/css" href="../css/bootstrap-datetimepicker.min.css"> -->
+
+  <link rel="stylesheet" type="text/css" href="../css/stylehome.css">
+  <link rel="stylesheet" type="text/css" href="../DataTables/datatables.css"/>
+
+  <script type="text/javascript" src="../jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+  <script type="text/javascript" src="../DataTables/datatables.js"></script>
+   
 	<script>
 		$(document).ready( function () {
     			$('#table_id').DataTable();
 		} );
-	</script>
+	</script>	
  	
 	<title> Home </title>
 </head>
