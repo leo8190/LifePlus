@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2019 at 09:04 AM
+-- Generation Time: Dec 14, 2019 at 12:29 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -169,7 +169,16 @@ INSERT INTO `integrantes` (`id_integrante`, `nombre`, `apellido`, `dni`, `sexo`,
 (19, 'Reteri', 'Salvador', 35235553, 'M', 49, '1988-05-14', 2),
 (20, 'Ernesto', 'Ferradas', 32423435, 'M', 50, '1988-02-02', 3),
 (21, 'Pedros', 'Lalos', 978696, 'M', 51, '1988-02-03', 0),
-(22, 'Lorenzo', 'Lamas', 325325, 'M', 52, '1988-02-03', 0);
+(22, 'Lorenzo', 'Lamas', 325325, 'M', 52, '1988-02-03', 0),
+(23, 'Sergio', 'Manuel', 124234124, 'M', 1, '0000-00-00', 2),
+(24, 'Mariano', 'Paez', 97869876, 'M', 2, '0000-00-00', 1),
+(25, 'Gabriela', 'Marquez', 78967896, 'F', 2, '0000-00-00', 2),
+(26, 'Claudia', 'Villa', 3252359, 'F', 2, '0000-00-00', 1),
+(27, 'Sabrina', 'Fernandez', 12355123, 'F', 2, '0000-00-00', 2),
+(28, 'Gabriel', 'Martinez', 2147483647, 'M', 2, '0000-00-00', 1),
+(29, 'Sergio', 'Sara', 235235235, 'M', 1, '0000-00-00', 1),
+(30, 'Pablo', 'Martinez', 123414, 'M', 1, '0000-00-00', 1),
+(31, 'Carlos', 'Apollonio', 235235235, 'M', 1, '1989-01-26', 1);
 
 -- --------------------------------------------------------
 
@@ -697,7 +706,7 @@ ALTER TABLE `estados`
 -- AUTO_INCREMENT for table `integrantes`
 --
 ALTER TABLE `integrantes`
-  MODIFY `id_integrante` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_integrante` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `legajos`
