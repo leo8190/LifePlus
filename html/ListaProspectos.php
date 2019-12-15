@@ -8,6 +8,7 @@
 		
 		<div id="tabla" >
 			<h1>Mis prospectos</h1>
+			<div id="exportar_grilla">Exportar grilla de prospectos: </div>
 			<table id="table_id" class="display" cellpadding="0" cellspacing="0">
 				<thead id="cabecera_tabla">
 					<th>Nro. de Prospecto</th>
