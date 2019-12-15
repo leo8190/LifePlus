@@ -89,17 +89,20 @@
 
 				<div id="sub_titulo">Descargar archivos adjuntos: </div>
 				<?php 
-					if ($handle = opendir('../attached_files/')) 
+					if (file_exists("../attached_files/prospecto" . $this->pr['id_prospectos'] . "/")) 
 					{
-						while (false !== ($entry = readdir($handle))) 
+						if ($handle = opendir('../attached_files/prospecto'.$this->pr['id_prospectos'].'/')) 
 						{
-							if ($entry != "." && $entry != "..") 
+							while (false !== ($entry = readdir($handle))) 
 							{
-								echo "<a href='download.php?file=".$entry."'>".$entry."</a> <br> </br>"; 
+								if ($entry != "." && $entry != "..") 
+								{
+									echo "<a href='download.php?file=".$entry."&id_prospecto=".$this->pr['id_prospectos']."'>".$entry."</a>"; 
+								}
 							}
-    					}
-    				closedir($handle);
-					}	
+							closedir($handle);
+						}	
+					}
 				?>
 			<br>
 

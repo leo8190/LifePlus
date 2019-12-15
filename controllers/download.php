@@ -1,7 +1,9 @@
 <?php
 
 $file = basename($_GET['file']);
-$file = '../attached_files/'.$file;
+// $file = '../attached_files/'.$file;
+
+$file = "../attached_files/prospecto" . $_GET['id_prospecto'] . "/" . $file;
 
 if(!file_exists($file)){ // file does not exist
     die('file not found');

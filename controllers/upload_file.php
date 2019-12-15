@@ -1,6 +1,10 @@
 <?php
 
- $targetfolder = "../attached_files/";
+if (!file_exists("../attached_files/prospecto" . $_POST['id_prospecto'] . "/")) {
+    mkdir("../attached_files/prospecto" . $_POST['id_prospecto'] . "/", 0777, true);
+}
+
+ $targetfolder = "../attached_files/prospecto" . $_POST['id_prospecto'] . "/";
 
  $targetfolder = $targetfolder . basename( $_FILES['file']['name']) ;
 
