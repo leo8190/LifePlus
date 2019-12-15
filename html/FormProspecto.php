@@ -81,29 +81,36 @@
 				<div id="sub_titulo">Subir archivo adjunto: </div>
 				<!-- El tipo de codificación de datos, enctype, DEBE especificarse como sigue -->
 				<form action="upload_file.php" method="post" enctype="multipart/form-data">
-					<input type="file" name="file" size="50" />
+					<input type="file" id="file" name="file" size="50" onchange="cambia();" />
 					<input type="hidden" name="id_prospecto" value="<?= $this->pr['id_prospectos']?>"/>
-					<input style="margin-top:-5px;" type="submit" value="Upload" class="boton" />
+					<input id="upload" style="margin-top:-5px;" type="submit" value="Subir" class="boton" />
 				</form>
 
-
-				<div id="sub_titulo">Descargar archivos adjuntos: </div>
+				<div id="sub_titulo">Descargar archivos adjuntos: </div>				
 				<?php 
 					if (file_exists("../attached_files/prospecto" . $this->pr['id_prospectos'] . "/")) 
 					{
 						if ($handle = opendir('../attached_files/prospecto'.$this->pr['id_prospectos'].'/')) 
 						{
-							while (false !== ($entry = readdir($handle))) 
-							{
-								if ($entry != "." && $entry != "..") 
-								{
-									echo "<a href='download.php?file=".$entry."&id_prospecto=".$this->pr['id_prospectos']."'>".$entry."</a>"; 
-								}
-							}
+
+				?>
+						<table>
+							<?php while(false !== ($entry = readdir($handle))) { if($entry != "." && $entry != "..") { ?>
+							<tr>
+							<td><?php echo "<a href='download.php?file=".$entry."&id_prospecto=".$this->pr['id_prospectos']."'>".$entry."</a>"; } ?></td>
+							</tr>
+							<?php } ?>
+						</table>
+
+				<?=
 							closedir($handle);
 						}	
 					}
+					else{
+						echo 'No hay aún archivos adjuntos subidos';
+					}
 				?>
+
 			<br>
 
 				<div id="botones">
@@ -166,3 +173,27 @@
 		cursor: pointer;
 	}
 </style>
+
+<script>
+var boton = document.getElementById("upload");
+boton.disabled = true;
+boton.style.background = "#006666";
+boton.style.cursor = "default";
+
+function cambia(){	
+	if( document.getElementById("file").files.length == 0 ) 
+	{
+		var boton = document.getElementById("upload");
+		boton.disabled = true;
+		boton.style.background = "#006666";
+		boton.style.cursor = "default";
+	}
+	else {
+		//Si paso todo ok, Habilita
+		var boton = document.getElementById("upload");
+		boton.disabled = false;
+		boton.style.background = "#00cccc";
+		boton.style.cursor = "pointer";
+	}
+}
+</script>
