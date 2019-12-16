@@ -2,20 +2,29 @@
 <html lang="es">
 <head>
 	<meta charset="utf-8">
- 	<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
-	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
- 	<script type="text/javascript" src="../DataTables/datatables.js"></script>
-	<script type="text/javascript" src="../js/es-us.js"></script>
-	<script type="text/javascript" src="../js/tempusdominus-bootstrap-4.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/stylehome.css">
+  <link rel="stylesheet" type="text/css" href="../DataTables/datatables.css"/>
+
+  <script type="text/javascript" src="../jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+  <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+  <script type="text/javascript" src="../DataTables/datatables.js"></script>
+  <script type="text/javascript" src="../js/dataTables.buttons.min.js"></script>
+  <script type="text/javascript" src="../js/buttons.flash.min.js"></script>
+  <script type="text/javascript" src="../js/jszip.min.js"></script>
+  <script type="text/javascript" src="../js/pdfmake.min.js"></script>
+  <script type="text/javascript" src="../js/vfs_fonts.js"></script>
+  <script type="text/javascript" src="../js/buttons.html5.min.js"></script>
+  <script type="text/javascript" src="../js/buttons.print.min.js"></script>
+
 	<script>
 		$(document).ready( function () {
-    			$('#table_id').DataTable();
+				$('#table_id').DataTable({
+					dom: 'Bfrtip',
+					buttons: [ 'copy', 'csv', 'excel', 'pdf', 'print' ]
+				});
 		} );
-	</script>
-	<link rel="stylesheet" type="text/css" href="../css/stylehome.css">
-	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
- 	<link rel="stylesheet" type="text/css" href="../DataTables/datatables.css"/>
-	<title> Home </title>
+	</script>	
+	<title> Mis Prospectos </title>
 </head>
 <body>
 	<div id="pagina">
