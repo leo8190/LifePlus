@@ -1,9 +1,10 @@
 <?php 
-
-	if($_SESSION['id_rol'] != 1)
-		include("../html/LeftMenuBase.php");
-	else
-		include("../html/LeftMenuAdmin.php");
+if($_SESSION['id_rol'] == 1)
+include("../html/LeftMenuAdmin.php");
+else if ($_SESSION['id_rol'] == 3)
+include("../html/LeftMenuSupervisor.php");
+else
+include("../html/LeftMenuBase.php");
 
 	$u=$this->usuario;
 	$a=$this->agencias;
@@ -86,7 +87,7 @@
 		
 			<form onsubmit="return confirm('¿Seguro que desea dar de baja a este usuario?');" action="bajausuario.php" method="post">
 				<input type="hidden" name="id_usuario" value=<?=$u['id_usuario']?>>
-				<div class="div_in"><input style="cursor:pointer" type="submit" class="boton" value="Dar de baja" /></div>
+				<div class="div_in"><input id="baja" style="cursor:pointer" type="submit" class="boton" value="Dar de baja" /></div>
 			</form>
 			
 		</div>
@@ -94,6 +95,16 @@
 </body>
 <script type="text/javascript">
 	
+var id_rol = "<?php echo $_SESSION['id_rol'] ?>";
+
+if (id_rol == 3) {
+	document.getElementById("agencia").disabled = true;
+	document.getElementById("rol").disabled = true;
+	document.getElementById("estado").disabled = true;
+	document.getElementById("modif").style.display = 'none';
+	document.getElementById("baja").style.display = 'none';
+}
+
 document.getElementById("n").disabled = true;
 document.getElementById("e").disabled = true;
 document.getElementById("a").disabled = true;
@@ -110,6 +121,8 @@ boton.style.background = "#006666";
 var agenciaactual =	document.getElementById("agencia").value;
 var rolactual =	document.getElementById("rol").value;
 var estadoactual =	document.getElementById("estado").value;
+
+
 
 function cambia(){
 

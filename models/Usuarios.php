@@ -411,5 +411,35 @@ class Usuarios extends Model {
 
 	}
 
+	public function getCantProsPorVendedor($id_usuario){
+		
+		if (!isset($id_usuario)) die('error85 models usuarios');
+		if(!is_numeric($id_usuario)) die("error86 models usuarios");
+		if($id_usuario < 1) die('error87 models usuarios');	
+
+		$this->db->query("SELECT id_usuario, COUNT(id_prospectos) from usuarios u join prospectos p
+						on u.id_usuario = p.vendedor group by id_usuario;");
+		if ($this->db->numRows() == 0 ) return false;
+		else
+		return $this->db->fetch();
+
+	}
+
+	public function getTodosMasCantProspPorCadaUno() {
+		$this->db->query('SELECT u.id_usuario as id_usuario, l.nombre as nombre, l.apellido as apellido, l.email as email, 
+		l.dni as dni, l.telefono as telefono, u.nombre_usuario as nombre_usuario, u.password as password,
+		 r.nombre as rol, a.nombre as agencia, e.nombre as estado, COUNT(p.id_prospectos) as cant_prospectos
+		FROM usuarios as u 
+		LEFT JOIN legajos as l ON u.id_legajo = l.id_legajo
+		LEFT JOIN roles as r ON u.id_rol = r.id_rol
+		LEFT JOIN agencias as a ON u.id_agencia = a.id_agencia
+		LEFT JOIN estados as e ON u.estado = e.id_estado
+		LEFT JOIN prospectos as p ON p.vendedor = u.id_usuario
+		WHERE u.estado = 1 AND u.id_rol = 2
+		GROUP BY u.id_usuario
+		ORDER BY u.id_usuario');
+		return $this->db->fetchAll();
+	}
+
 
 }
