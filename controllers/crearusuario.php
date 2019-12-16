@@ -12,7 +12,7 @@ require '../views/AltaUsuarioOk.php';
 
 
 if(!isset($_SESSION['id_usuario'])) header('Location: login.php');
-if($_SESSION['id_rol'] != 1) header('Location: verprospectos.php');
+if($_SESSION['id_rol'] != 1 && $_SESSION['id_rol'] != 3) header('Location: verprospectos.php');
 
 if(isset($_POST['ok'])) {
 
