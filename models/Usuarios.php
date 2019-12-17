@@ -13,7 +13,6 @@ class Usuarios extends Model {
 						LEFT JOIN roles as r ON u.id_rol = r.id_rol
 						LEFT JOIN agencias as a ON u.id_agencia = a.id_agencia
 						LEFT JOIN estados as e ON u.estado = e.id_estado 
-						WHERE u.estado = 1
 						ORDER BY u.id_usuario");
 		return $this->db->fetchAll();
 	}
