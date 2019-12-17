@@ -9,6 +9,9 @@ include("../html/LeftMenuBase.php");
 	$u=$this->usuario;
 	$a=$this->agencias;
 	$r=$this->roles;
+
+	$selectedHabilitado = "";
+	$selectedDeshabilitado = "";
  ?>
 
 		<?php $u=$this->usuario ?>
@@ -75,8 +78,9 @@ include("../html/LeftMenuBase.php");
 		 		<div class="div_in">
 		 		<label for="estado">Estado: </label>
 				<select id="estado" name="id_estado" style="width: 200px;" onchange="cambia()">
-		 				<option value="1">Habilitado</option>
-		 				<option value="0">Deshabilitado</option>
+		 				<?php if ($u["estado"] == 'Deshabilitado') $selectedDeshabilitado = 'selected="selected"'; else $selectedHabilitado = 'selected="selected"'; ?>
+						 <option <?=$selectedHabilitado?> value="1">Habilitado</option>
+		 				<option <?=$selectedDeshabilitado?> value="47">Deshabilitado</option>
 		 		</select>
 		 		</div>
 

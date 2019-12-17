@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2019 at 12:09 AM
+-- Generation Time: Dec 17, 2019 at 10:34 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -47,7 +47,9 @@ INSERT INTO `agencias` (`id_agencia`, `nombre`, `habilitada`) VALUES
 (6, 'Sexta', 1),
 (7, 'Septima', 1),
 (8, 'Octava', 1),
-(9, 'Novena', 1);
+(9, 'Novena', 1),
+(10, 'Decima', 1),
+(11, 'Onceava', 0);
 
 -- --------------------------------------------------------
 
@@ -137,7 +139,8 @@ INSERT INTO `estados` (`id_estado`, `nombre`) VALUES
 (43, 'Baja-Error.Carga.Promotor'),
 (44, 'Baja-Preexistencia'),
 (45, 'Baja-Costo.Excesivo'),
-(46, 'Baja-Duplicado');
+(46, 'Baja-Duplicado'),
+(47, 'Deshabilitado');
 
 -- --------------------------------------------------------
 
@@ -192,7 +195,10 @@ INSERT INTO `integrantes` (`id_integrante`, `nombre`, `apellido`, `dni`, `sexo`,
 (29, 'Sergio', 'Sara', 235235235, 'M', 1, '1987-05-01', 1),
 (30, 'Pablo', 'Martinez', 123414, 'M', 1, '1987-05-02', 1),
 (31, 'Carlos', 'Apollonio', 235235235, 'M', 1, '1989-01-26', 1),
-(32, 'Claudio', 'Saenz', 124235235, 'M', 5, '1989-01-10', 2);
+(32, 'Claudio', 'Saenz', 124235235, 'M', 5, '1989-01-10', 2),
+(33, 'Martin ', 'Martinez', 24122154, 'M', 5, '1989-01-10', 1),
+(34, 'Zarmiento', 'Salome', 235235, 'M', 53, '0000-00-00', 0),
+(35, 'Martita', 'Martesi', 9867986, 'F', 54, '0000-00-00', 0);
 
 -- --------------------------------------------------------
 
@@ -233,7 +239,9 @@ INSERT INTO `legajos` (`id_legajo`, `nombre`, `apellido`, `email`, `dni`, `telef
 (43, 'Pancracio', 'Martinez', 'pancracio@mail.com', 2147483647, 2147483647),
 (44, 'Horacio', 'Lareta', 'lareta@ret.com', 2147483647, 352352356),
 (45, 'Marina', 'Marolle', 'marolle@mail.com', 235235235, 235235235),
-(46, 'Roberto', 'Reteri', 'reteri@mail.com', 2147483647, 54235235);
+(46, 'Roberto', 'Reteri', 'reteri@mail.com', 2147483647, 54235235),
+(47, 'Rosita', 'Rosas', 'rosas@rosas.com', 98696, 3255235),
+(48, 'Raul', 'Raul', 'raul@ewfef.comm', 3223325, 214124214);
 
 -- --------------------------------------------------------
 
@@ -374,7 +382,9 @@ INSERT INTO `prospectos` (`id_prospectos`, `vendedor`, `estado_actual`, `nombre`
 (49, 28, 1, 'Manuel', 'Stolerman', 'manuel@gmail.com', 352354432, '2019-12-10', 'M', 8),
 (50, 2, 1, 'Raul', 'Rarase', 'rarase@gmail.com', 324234343, '2019-12-10', 'M', 9),
 (51, 28, 1, 'Pedros', 'Lalos', 'leonar3333do23322@gmail.com', 978696, '2019-12-10', 'M', 8),
-(52, 31, 1, 'Lorenzo', 'Lamas', 'lorenzo@lamas.com', 325325, '2019-12-10', 'M', 9);
+(52, 31, 1, 'Lorenzo', 'Lamas', 'lorenzo@lamas.com', 325325, '2019-12-10', 'M', 9),
+(53, 30, 1, 'Zarmiento', 'Salome', 'zar@zar.com', 235235, '2019-12-17', 'M', 4),
+(54, 30, 1, 'Martita', 'Martesi', 'marta@mar.com', 9867986, '2019-12-17', 'F', 1);
 
 -- --------------------------------------------------------
 
@@ -541,7 +551,9 @@ INSERT INTO `telefonos_pros` (`id_tel_pros`, `telefono`, `id_prospecto`) VALUES
 (18, 2147483647, 49),
 (19, 2147483647, 50),
 (20, 2147483647, 51),
-(21, 213412125, 52);
+(21, 213412125, 52),
+(22, 32523532, 53),
+(23, 3223523, 54);
 
 -- --------------------------------------------------------
 
@@ -566,7 +578,7 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`id_usuario`, `id_rol`, `id_agencia`, `id_legajo`, `password`, `estado`, `nombre_usuario`) VALUES
 (0, 2, 6, 11, 'gabrieltet', 1, 'gabrieltet'),
 (1, 2, 6, 10, 'tereno', 1, 'tereno'),
-(2, 2, 2, 2, 'fernando', 1, 'fernando'),
+(2, 1, 1, 2, 'fernando', 47, 'fernando'),
 (3, 1, 1, 6, 'pablo', 1, 'pablo'),
 (21, 1, 1, 30, 'francisco', 1, 'francisco'),
 (24, 3, 1, 33, 'florencia', 1, 'florencia'),
@@ -577,13 +589,15 @@ INSERT INTO `usuarios` (`id_usuario`, `id_rol`, `id_agencia`, `id_legajo`, `pass
 (30, 2, 1, 37, 'raul', 1, 'raul'),
 (31, 2, 5, 38, 'claudio', 1, 'claudio'),
 (32, 2, 6, 39, 'perla', 1, 'perla'),
-(33, 3, 6, 40, 'manuel', 1, 'manuel'),
+(33, 1, 1, 40, 'manuel', 1, 'manuel'),
 (34, 6, 9, 41, 'ingrid', 1, 'ingrid'),
 (35, 5, 6, 42, 'patricia', 1, 'patricia'),
 (36, 3, 3, 43, 'pancracio', 1, 'pancracio'),
 (37, 4, 5, 44, 'horacio', 1, 'horacio'),
 (38, 5, 9, 45, 'marina', 1, 'marina'),
-(39, 6, 9, 46, 'roberto', 1, 'roberto');
+(39, 6, 9, 46, 'roberto', 1, 'roberto'),
+(40, 1, 1, 47, 'rosita', 1, 'rosita'),
+(41, 1, 1, 48, 'raules', 1, 'raules');
 
 --
 -- Indexes for dumped tables
@@ -703,7 +717,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `agencias`
 --
 ALTER TABLE `agencias`
-  MODIFY `id_agencia` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_agencia` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `archivos_adjuntos`
@@ -721,19 +735,19 @@ ALTER TABLE `cambios_estado`
 -- AUTO_INCREMENT for table `estados`
 --
 ALTER TABLE `estados`
-  MODIFY `id_estado` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id_estado` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `integrantes`
 --
 ALTER TABLE `integrantes`
-  MODIFY `id_integrante` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id_integrante` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `legajos`
 --
 ALTER TABLE `legajos`
-  MODIFY `id_legajo` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id_legajo` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `localidad`
@@ -751,7 +765,7 @@ ALTER TABLE `movimientos`
 -- AUTO_INCREMENT for table `prospectos`
 --
 ALTER TABLE `prospectos`
-  MODIFY `id_prospectos` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id_prospectos` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- AUTO_INCREMENT for table `provincias`
@@ -769,13 +783,13 @@ ALTER TABLE `seguimientos`
 -- AUTO_INCREMENT for table `telefonos_pros`
 --
 ALTER TABLE `telefonos_pros`
-  MODIFY `id_tel_pros` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_tel_pros` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id_usuario` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- Constraints for dumped tables

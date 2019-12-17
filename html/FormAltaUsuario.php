@@ -78,7 +78,7 @@
 					<?php if	($_SESSION['id_rol'] == 1) { ?>
 						<option value="1">Habilitado</option>
 					<?php }	?>
-						<option value="0">Deshabilitado</option>
+						<option value="47">Deshabilitado</option>
 			 		</select>
 				</div>	
 				<div class="div_in">

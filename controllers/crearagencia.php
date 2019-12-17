@@ -4,6 +4,7 @@
 
 require '../fw/fw.php';
 require '../models/Agencias.php';
+require '../models/Usuarios.php';
 require '../views/FormAltaAgencia.php';
 require '../views/ListaAgencias.php';
 require '../views/AltaAgenciaOk.php';

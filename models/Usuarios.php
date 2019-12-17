@@ -196,7 +196,7 @@ class Usuarios extends Model {
 
 		if (!isset($id_estado)) die('error67 models usuarios');
 		if(!is_numeric($id_estado)) die("error68 models usuarios");
-		if($id_estado > 1  || $id_estado < 0 ) die('error69 models usuarios');
+		// if($id_estado > 1  || $id_estado < 0 ) die('error69 models usuarios');
 
 		$this->db->query("UPDATE usuarios as u
 						  LEFT JOIN legajos as l ON u.id_legajo = l.id_legajo
