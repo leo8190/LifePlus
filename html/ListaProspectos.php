@@ -2,7 +2,7 @@
 
 	if($_SESSION['id_rol'] == 1)
 		include("../html/LeftMenuAdmin.php");
-	else if ($_SESSION['id_rol'] == 3)
+	else if($_SESSION['id_rol'] == 3)
 		include("../html/LeftMenuSupervisor.php");
 	else
 		include("../html/LeftMenuBase.php");

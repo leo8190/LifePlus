@@ -13,7 +13,6 @@ class Usuarios extends Model {
 						LEFT JOIN roles as r ON u.id_rol = r.id_rol
 						LEFT JOIN agencias as a ON u.id_agencia = a.id_agencia
 						LEFT JOIN estados as e ON u.estado = e.id_estado 
-						WHERE u.estado = 1
 						ORDER BY u.id_usuario");
 		return $this->db->fetchAll();
 	}
@@ -165,7 +164,7 @@ class Usuarios extends Model {
 
 		if (!isset($id_estado)) die('error38 models usuarios');
 		if(!is_numeric($id_estado)) die("error39 models usuarios");
-		if($id_estado < 1) die('error40 models usuarios');
+		if($id_estado < 0) die('error40 models usuarios');
 		
 
 		if ($this->existeNombreUsuario($nombre_usuario)) die('nombre_usuario ya existe');

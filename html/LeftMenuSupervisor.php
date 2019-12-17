@@ -53,15 +53,21 @@
 						<div class="barra"></div>
 						<p class="menu">Agregar prospecto</p>
 					</li>
-                    <a/>
+                    </a>
                     
                     <a href="../controllers/verestadisticas.php">
 					<li>
 						<div class="barra"></div>
 						<p class="menu">Ver estadisticas</p>
 					</li>
-					<a/>
+					</a>
 
+					<a href="../controllers/crearusuario.php">
+					<li>
+						<div class="barra"></div>
+						<p class="menu">Solicitar usuario</p>
+					</li>
+					</a>
 					<a href="../controllers/logout.php">
 					<li>
 						<div class="barra"></div>

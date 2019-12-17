@@ -1,11 +1,11 @@
 <?php 
-
-if($_SESSION['id_rol'] == 1)
-include("../html/LeftMenuAdmin.php");
-else if ($_SESSION['id_rol'] == 3)
-include("../html/LeftMenuSupervisor.php");
-else
-include("../html/LeftMenuBase.php");
+	
+	if($_SESSION['id_rol'] == 1)
+		include("../html/LeftMenuAdmin.php");
+	else if($_SESSION['id_rol'] == 3)
+		include("../html/LeftMenuSupervisor.php");
+	else
+		include("../html/LeftMenuBase.php");
  ?>
 		
 
@@ -75,7 +75,9 @@ include("../html/LeftMenuBase.php");
 				<div class="div_in">
 					<label for="estado">Estado: </label>
 					<select id="estado" name="id_estado" style="width: 100px;" oninput="cambia()" required>
+					<?php if	($_SESSION['id_rol'] == 1) { ?>
 						<option value="1">Habilitado</option>
+					<?php }	?>
 						<option value="0">Deshabilitado</option>
 			 		</select>
 				</div>	
