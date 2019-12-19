@@ -280,7 +280,7 @@ class Usuarios extends Model {
 
 		if (!isset($id_usuario)) die('error70 models usuarios');
 		if(!is_numeric($id_usuario)) die("error71 models usuarios");
-		if($id_usuario < 1) die('error72 models usuarios');
+		if($id_usuario < 0) die('error72 models usuarios');
 
 		$this->db->query("SELECT * FROM usuarios
 						  WHERE id_usuario=".$id_usuario . " LIMIT 1;");
