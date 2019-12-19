@@ -292,7 +292,7 @@ class Usuarios extends Model {
 		
 		if (!isset($id_usuario)) die('error73 models usuarios');
 		if(!is_numeric($id_usuario)) die("error74 models usuarios");
-		if($id_usuario < 1) die('error75 models usuarios');
+		if($id_usuario < 0) die('error75 models usuarios');
 
 		if ($this->existeUsuario($id_usuario) == true) {
 
