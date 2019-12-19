@@ -17,12 +17,12 @@ include("../html/LeftMenuBase.php");
 
 				<div class="div_in">
 					<label for="est_a">Estado Actual:</label>
-					<input disabled="true" id="est_a" type="text" name="id_estado_act" value=<?=$this->nom_est_act?>>
+					<input class="form-control form-control-sm" disabled="true" id="est_a" type="text" name="id_estado_act" value=<?=$this->nom_est_act?>>
 				</div>
 
 				<div class="div_in">
 					<label for="est_n">Estado Nuevo:</label>
-					<select name="id_estado_nuevo">
+					<select class="form-control form-control-sm"  name="id_estado_nuevo">
 						<?php foreach($this->est_disp as $es){ ?>
 						<option value="<?=$es['estado_permitido']?>">
 							<?=$es['nombre']?></option>
@@ -42,7 +42,7 @@ include("../html/LeftMenuBase.php");
 				<div id="sub_titulo">Agregar comentario</div>
 				<div class="div_in" 
 				style="width: 100%; height: 60px; font-size: 16px;"> 
-				<input type="text" class="text" id="coments"  name="comentarios" oninput="cambia()" required style="width: 100%; height: 100%">
+				<input class="form-control form-control-sm" type="text" class="text" id="coments"  name="comentarios" oninput="cambia()" required style="width: 100%; height: 100%">
 				</div>
 			</form>
 		</div>

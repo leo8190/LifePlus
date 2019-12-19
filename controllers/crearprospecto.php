@@ -27,8 +27,15 @@ if(isset($_POST['ok'])) {
 	$agencia = (new Agencias)->getAgenciaByLocalidad($_POST['localidad']);	
 	$vendedores = (new Usuarios)->getVendedoresByAgencia($agencia['id_agencia']);
 
+
+	//si vendedores está vacío, se tiene que devolver otra pantalla que diga que la agencia no posee vendedores
+	//también se pueden poner las localidades que tienen asignadas agencias solamente 
+
+
 	$vendedorAsignado = $vendedores[array_rand($vendedores)];
 	$vendedorAsignadoID = $vendedorAsignado['id_usuario'];
+
+
 
 	$id=(new Prospectos)->alta($_POST['nom'],$_POST['ape'],$_POST['email'],$_POST['num_doc'],$_POST['sexo'],$_POST['tel'],$vendedorAsignadoID,$_POST['localidad'] );
 
@@ -53,7 +60,8 @@ $v->render();
 else {
 	$auxloc= new Localidades;
 	$form = new FormAltaProspecto;
-	$form->localidades=$auxloc->getTodas();
+	//acá devolver las  localidades que tiene agencias solamente 
+	$form->localidades=$auxloc->getTodasHabilitadas();
 	$form->render();
 
 

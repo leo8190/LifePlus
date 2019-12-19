@@ -10,8 +10,7 @@ include("../html/LeftMenuBase.php");
 
 		<div id="tabla" >
 			<h1>Localidades</h1>
-
-			<table cellpadding="0" cellspacing="0">
+			<table>
 				<thead id="cabecera_tabla">
 					<th>Localidad</th>
 					<th>Provincia</th>
@@ -19,7 +18,7 @@ include("../html/LeftMenuBase.php");
 				</thead>
 				<tbody>
 					<?php foreach($this->localidades as $l){ ?>
-					<tr>
+						<tr onclick="irALocalidad(<?=$l['id_loc']?>)">
 						<td> <a href=<?="../controllers/verlocalidad.php?id_loc=".$l['id_loc']?>><?=$l['nom_loc']?></a></td>
 						<td><?= $l['nom_prov'] ?></td>
 						<td><?= $l['nom_ag'] ?></td>
@@ -36,3 +35,12 @@ include("../html/LeftMenuBase.php");
 	
 </body>
 </html>
+
+
+<script text="javascript">
+
+function irALocalidad(id_localidad){
+	//alert(num_prospecto);
+	window.location.href = "../controllers/verlocalidad.php?id_loc=" + id_localidad 
+}
+</script>

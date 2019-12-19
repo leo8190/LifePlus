@@ -12,7 +12,7 @@ include("../html/LeftMenuBase.php");
 		<div id="tabla" >
 			<h1>Agencias</h1>
 
-			<table cellpadding="0" cellspacing="0">
+			<table class="display" cellpadding="0" cellspacing="0">
 				<thead id="cabecera_tabla">
 					<th>Numero de Agencia</th>
 					<th>Nombre de Agencia</th>
@@ -21,9 +21,9 @@ include("../html/LeftMenuBase.php");
 				</thead>
 				<tbody>
 					<?php foreach($this->agencias as $p){ ?>
-					<tr>
-						<td> <a href=<?="../controllers/veragencia.php?num_agen=".$p['id_agencia']?>><?=$p['id_agencia']?></a></td>
-						<td><?= $p['nombre'] ?></td>
+						<tr >
+						<td onclick="irAAgencia(<?=$p['id_agencia']?>)"> <a href=<?="../controllers/veragencia.php?num_agen=".$p['id_agencia']?>><?=$p['id_agencia']?></a></td>
+						<td onclick="irAAgencia(<?=$p['id_agencia']?>)"><?= $p['nombre'] ?></td>
 						<td>
 						<div class="div_in">
 							<form onsubmit="return confirm('¿Seguro que desea dar de baja esta agencia?');" action="../controllers/bajaagencia.php" method="POST">
@@ -40,11 +40,18 @@ include("../html/LeftMenuBase.php");
 				<input style="cursor:pointer" class="boton" type="submit" name="agregar_agencia" value="Agregar agencia+">
 			</form>
 
-			
-
 		</div>
 
 	</div>
 	
 </body>
 </html>
+
+
+<script text="javascript">
+
+function irAAgencia(id_agencia){
+	//alert(num_prospecto);
+	window.location.href = "../controllers/veragencia.php?num_agen=" + id_agencia 
+}
+</script>

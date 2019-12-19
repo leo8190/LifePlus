@@ -17,21 +17,21 @@
 			<form method="post" action="" onsubmit="return validateForm()">
 				<!--No se deberian poner en un select los datos del leg y a partir de ahi crear el usuario ?? Es un alta de usuario no de un empleado de la empresa -->
 				<div class="div_in">
-					<label for="nombre">Nombre: </label><input id="nom" type="text" name="nom" oninput="cambia()" required>
+					<label for="nombre">Nombre: </label><input class="form-control form-control-sm"   id="nom" type="text" name="nom" oninput="cambia()" required>
 				</div>
 					
 				<div class="div_in">
-					<label for="apellido">Apellido: </label><input id="ape" type="text" name="ape" oninput="cambia()" required>
+					<label for="apellido">Apellido: </label><input class="form-control form-control-sm"  id="ape" type="text" name="ape" oninput="cambia()" required>
 				</div>	
 
 				<div class="div_in">
 					<label for="email"> Correo electrónico: </label>
-			 		<input type="text" name="email" id="email" style="width: 200px;" onchange="cambia()" required>
+			 		<input class="form-control form-control-sm"  type="text" name="email" id="email" style="width: 200px;" onchange="cambia()" required>
 				</div>	
 
 				<div class="div_in">
 					<label for="tipo">Tipo de documento: </label>
-					<select id="tipo_doc" name="tipo_doc" style="width: 100px;" oninput="cambia()" required>
+					<select class="form-control form-control-sm"  id="tipo_doc" name="tipo_doc" style="width: 100px;" oninput="cambia()" required>
 			 				<option value="0">Seleccionar</option>
 			 				<option value="1">DNI</option>
 			 				<option value="2">PA</option>
@@ -41,21 +41,21 @@
 				</div>	
 
 				<div class="div_in">
-					<label for="num_doc"> N°: </label><input type="text" name="dni" id="num_doc" style="width: 200px;" oninput="cambia()" required>
+					<label for="num_doc"> N°: </label><input class="form-control form-control-sm"  type="text" name="dni" id="num_doc" style="width: 200px;" oninput="cambia()" required>
 				</div>	
 
 				<div class="div_in">
 					<label for="nombre_usuario"> Nombre de usuario: </label>
-			 		<input type="text" id="nombre_usuario" name="nombre_usuario" oninput="cambia()" required>
+			 		<input class="form-control form-control-sm"  type="text" id="nombre_usuario" name="nombre_usuario" oninput="cambia()" required>
 				</div>	
 					
 				<div class="div_in">
 					<label for="password"> Password: </label>
-			 		<input type="text" id="password" name="password" oninput="cambia()" required>
+			 		<input class="form-control form-control-sm"  type="text" id="password" name="password" oninput="cambia()" required>
 				</div>	
 				<div class="div_in">
 					<label for="agencia">Agencia: </label>
-					<select id="agencia" name="id_agencia" style="width: 100px;" oninput="cambia()" required>
+					<select class="form-control form-control-sm"  id="agencia" name="id_agencia" style="width: 100px;" oninput="cambia()" required>
 					<option value="0">Seleccionar</option>
 						<?php foreach ($a as $key) { ?>
 			 				<option value="<?=$key['id_agencia']?>"><?=$key['nombre']?></option>
@@ -64,7 +64,7 @@
 				</div>	
 				<div class="div_in">
 					<label for="rol">Rol: </label>
-					<select id="rol" name="id_rol" style="width: 100px;" oninput="cambia()" required>
+					<select class="form-control form-control-sm"  id="rol" name="id_rol" style="width: 100px;" oninput="cambia()" required>
 						<option value="0">Seleccionar</option>
 						<?php foreach ($r as $key) { ?>
 			 				<option value="<?=$key['id_rol']?>"><?=$key['nombre']?></option>
@@ -74,7 +74,7 @@
 
 				<div class="div_in">
 					<label for="estado">Estado: </label>
-					<select id="estado" name="id_estado" style="width: 100px;" oninput="cambia()" required>
+					<select class="form-control form-control-sm"  id="estado" name="id_estado" style="width: 100px;" oninput="cambia()" required>
 					<?php if	($_SESSION['id_rol'] == 1) { ?>
 						<option value="1">Habilitado</option>
 					<?php }	?>
@@ -83,7 +83,7 @@
 				</div>	
 				<div class="div_in">
 					<label for="telefono"> Telefono: </label>
-			 		<input type="text" id="tel" name="tel" oninput="cambia()" required>
+			 		<input class="form-control form-control-sm"  type="text" id="tel" name="tel" oninput="cambia()" required>
 				</div>	
 				<div class="div_in">
 					<input name="ok" id="ok" class="boton" type="submit"  

@@ -15,7 +15,7 @@ if(isset($_POST['ok'])){
 
 	//var_dump($_POST['id_agencia']);
 	(new Agencias)->editarAgencia($_POST['id_agencia'],$_POST['nombre_ag']);
-	echo "MODIFICACION OK";
+	//echo "MODIFICACION OK";
 
 }
 

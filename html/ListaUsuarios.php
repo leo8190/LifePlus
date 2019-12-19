@@ -20,7 +20,7 @@
 				</thead>
 				<tbody>
 					<?php foreach($this->usuarios as $u){ ?>
-					<tr>
+					<tr onclick="irAUsuario(<?=$u['id_usuario']?>)">
 					<td> <a href=<?="../controllers/editarusuario.php?id_usu=".$u['id_usuario']?>><?=$u['id_usuario']?></a></td>
 					<td><?= $u['nombre'] ?></td>
 					<td><?= $u['apellido'] ?></td>
@@ -36,3 +36,12 @@
 	</div>
 </body>
 </html>
+
+
+<script text="javascript">
+
+function irAUsuario(id_usuario){
+	//alert(num_prospecto);
+	window.location.href = "../controllers/editarusuario.php?id_usu=" + id_usuario 
+}
+</script>

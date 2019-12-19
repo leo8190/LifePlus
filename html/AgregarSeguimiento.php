@@ -26,7 +26,7 @@ include("../html/LeftMenuBase.php");
 				<div id="sub_titulo">Agregar comentario</div>
 				<div class="div_in"
 				style="width: 100%; height: 60px; font-size: 16px;"> 
-				<input type="text" class="text" id="coments"  name="comentarios" oninput="cambia()"  style="width: 100%; height: 100%" required >
+				<input class="form-control form-control-sm" type="text" class="text" id="coments"  name="comentarios" oninput="cambia()"  style="width: 100%; height: 100%" required >
 				</div>
 
 				<div class="div_in"> 

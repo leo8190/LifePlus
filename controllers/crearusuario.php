@@ -35,14 +35,14 @@ if(isset($_POST['ok'])) {
 		$_POST['dni'], $_POST['nombre_usuario'], $_POST['password'], 
 		$_POST['id_agencia'], $_POST['id_rol'], $_POST['tel'], $_POST['id_estado']);
 
-	/*$u = new Usuarios;
+	$u = new Usuarios;
 	$todos = $u->getTodos();
 
 	$v = new ListaUsuarios;
 	$v->usuarios = $todos;
-	$v->render();*/
+	$v->render();
 
-	$a = new Agencias;
+	/*$a = new Agencias;
 	$ag = $a->getTodas();
 
 	$r = new Roles;
@@ -51,7 +51,7 @@ if(isset($_POST['ok'])) {
 	$form = new FormAltaUsuario;
 	$form->agencias = $ag;
 	$form->roles = $ro;
-	$form->render();
+	$form->render();*/
 }
 
 else {

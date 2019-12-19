@@ -22,16 +22,27 @@ if(isset($_POST['ok'])) {
 	if(!isset($_POST['id_agencia'])) die("no se envio agencia");
 	
 	$a = new Agencias;
+	$variable = $a->tieneUsuariosAsociados($_POST['id_agencia']);
+
+/*	$variable.count
 	$tieneUsuariosAsociados = $a->tieneUsuariosAsociados($_POST['id_agencia']);
-	$array = $tieneUsuariosAsociados[0];
+	$array = $tieneUsuariosAsociados 
+	$x = $array.count()
 	$firstKey = array_key_first($array);
-	$value = $array[$firstKey];
-	if($value == "0"){
+	$value = $array[$firstKey];*/
+
+if(count($variable) == "0") {
+	(new Agencias)->deshabilitar($_POST['id_agencia']);	
+}
+else {
+	phpAlert( "La agencia no puede darse de baja porque tiene usuarios asociados a la misma" ); 	
+}
+	/*if($value == "0"){
 		(new Agencias)->deshabilitar($_POST['id_agencia']);		
 	}
 	else{		
 		phpAlert( "La agencia no puede darse de baja porque tiene usuarios asociados a la misma" ); 					
-	}
+	}*/
 	$e = new Agencias;
 	$todos = $e->getTodas();
 	$v = new ListaAgencias;

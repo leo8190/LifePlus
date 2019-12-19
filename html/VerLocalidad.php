@@ -40,7 +40,7 @@ include("../html/LeftMenuBase.php");
 						<?php foreach ($this->localidad as $key) { ?>
 							<input type="hidden" id="id_loc" name="id_loc" value="<?=$key['id_loc']?>">
 						<?php } ?>
-							<input type="submit" class="boton" value="Confirmar" name="ok"  id="ok" />
+							<input  type="submit" class="boton" value="Confirmar" name="ok"  id="ok" />
 							</div>
 						</td>
 					</tr>

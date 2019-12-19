@@ -74,9 +74,12 @@ class Agencias extends Model {
 		if(!is_numeric($id_agencia)) die("error10, models agencia");
 		if($id_agencia < 1) die('error11 models agencia');	
 
-		$this->db->query("SELECT EXISTS(SELECT * FROM usuarios
-						  WHERE id_agencia=".$id_agencia.")"); 
+	/*	$this->db->query("SELECT EXISTS(SELECT * FROM usuarios
+						  WHERE id_agencia=".$id_agencia.")"); */
 		
+		$this->db->query("SELECT * FROM usuarios
+						  WHERE id_agencia=".$id_agencia);
+
 		return $this->db->fetchAll();						  
 	}
 
