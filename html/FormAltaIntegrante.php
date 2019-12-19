@@ -1,11 +1,11 @@
 <?php 
 
 if($_SESSION['id_rol'] == 1)
-include("../html/LeftMenuAdmin.php");
+	include("../html/LeftMenuAdmin.php");
 else if ($_SESSION['id_rol'] == 3)
-include("../html/LeftMenuSupervisor.php");
+	include("../html/LeftMenuSupervisor.php");
 else
-include("../html/LeftMenuBase.php");
+	include("../html/LeftMenuBase.php");
  ?>
 
 <!doctype html>
@@ -26,7 +26,7 @@ include("../html/LeftMenuBase.php");
     });
   } );
 
-  var boton = document.getElementById("ok");
+var boton = document.getElementById("ok");
 boton.disabled = true;	
 boton.style.background = "#006666";
 
@@ -99,7 +99,37 @@ function cambia(){
 		boton.style.cursor = "default";
 
 	} else {
+		if (fecha_nacimiento.length ==0){
+			alert('Completar la Fecha de nacimiento');
+			var boton = document.getElementById("ok");
+
+			boton.disabled = true;
+			boton.style.background = "#006666";
+			return;
+		}
+		//input del calendario	
+		if(fecha_nacimiento.length < 3 ){
 			
+			alert('La fecha debe completarse');
+			document.getElementById("fecha_nacimiento").value = "";
+			var boton = document.getElementById("ok");
+			boton.disabled = true;
+			boton.style.background = "#006666";
+			return;
+
+		}
+		if(fecha_nacimiento.length > 2  ){
+			if( fecha_nacimiento.substring(2, 3) != "-" ||  fecha_nacimiento.substring(5, 6) != "-" || fecha_nacimiento.length != 10){
+			alert('Problema con la fecha ingresada, intente de nuevo');
+			document.getElementById("fecha_nacimiento").value = "";
+			var boton = document.getElementById("ok");
+			boton.disabled = true;
+			boton.style.background = "#006666";
+			return;
+
+
+			}
+		}	
 		//Si paso todo ok, Habilita
 		var boton = document.getElementById("ok");
 		boton.disabled = false;

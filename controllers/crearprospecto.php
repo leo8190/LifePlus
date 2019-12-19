@@ -34,10 +34,8 @@ if(isset($_POST['ok'])) {
 
 	$vendedorAsignado = $vendedores[array_rand($vendedores)];
 	$vendedorAsignadoID = $vendedorAsignado['id_usuario'];
-
-
-
-	$id=(new Prospectos)->alta($_POST['nom'],$_POST['ape'],$_POST['email'],$_POST['num_doc'],$_POST['sexo'],$_POST['tel'],$vendedorAsignadoID,$_POST['localidad'] );
+	
+	$id=(new Prospectos)->alta($_POST['nom'],$_POST['ape'],$_POST['email'],$_POST['num_doc'],$_POST['fecha_nacimiento'],$_POST['sexo'],$_POST['tel'],$vendedorAsignadoID,$_POST['localidad'] );
 
 $pr = new Prospectos;
 $se = new Seguimiento;

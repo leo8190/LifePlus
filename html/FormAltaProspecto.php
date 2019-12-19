@@ -7,6 +7,9 @@
 	else
 		include("../html/LeftMenuBase.php");
  ?>
+ <body>
+ 	<div>
+
 		<div id="contenedor" >
 			<h1>Agregar prospecto</h1>
 			<h2>Complete los datos para dar de alta un nuevo prospecto</h2>
@@ -49,6 +52,10 @@
 			 				<option value="F">F</option>
 			 		</select>
 			 	</div>
+				 <div class="div_in">
+			 		<label for="fecha_nacimiento"> Fecha de Nacimiento: </label>
+                    <input name="fecha_nacimiento" type="text" id="fecha_nacimiento" onchange="cambia()" required>
+			 	</div>    
 			 	<div class="div_in">
 			 		<label for="email"> Correo electrónico </label>
 			 		<input class="form-control form-control-sm" type="text" name="email" id="email" style="width: 200px;" oninput="cambia()" required>
@@ -92,7 +99,21 @@
 		</div>
 	</div>
 </body>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../jquery-ui-1.12.1.custom/jquery-ui.css">
+<script type="text/javascript" src="../jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
+<script type="text/javascript" src="../jquery-ui-1.12.1.custom/jquery-ui.js"></script>    
 <script text="javascript">
+
+$( function() {
+    $( "#fecha_nacimiento" ).datepicker({
+        dateFormat: "dd-mm-yy",
+        defaultDate: '01-01-1989'
+    });
+  } );
+
 var boton = document.getElementById("ok");
 boton.disabled = true;	
 boton.style.background = "#006666";
@@ -128,12 +149,13 @@ function cambia(){
  	var tel = document.getElementById("tel").value;
  	var medio = document.getElementById("medio").value;
  	var comp = document.getElementById("comp").value;
-
+	var fecha_nacimiento = document.getElementById("fecha_nacimiento").value;
  	existeletra = /[A-Za-z]/;
 
  /*	alert(nombre);alert(apellido);alert(tipodoc);alert(numdoc);alert(localidad);alert(sexo);
  	alert(email);alert(tel);alert(medio);alert(comp);
    */
+	
    //Sin numeros en Nombre
     if(nombre != "" ){
 		for (var i = 0 ; i<=9 ; i++){
@@ -192,8 +214,12 @@ function cambia(){
 			return;
 		} 
 	}
+
+
+
+
 	//Validar todos campos vacios
-	if ( nombre == "" || apellido == "" || tipodoc == 0 || numdoc == "" || localidad == 0 || sexo == 0  || email == ""  || tel == "" || medio == "" || comp == ""){
+	if (  nombre == "" || apellido == "" || tipodoc == 0 || numdoc == "" || localidad == 0 || sexo == 0  || email == ""  || tel == "" || medio == "" || comp == ""){
 		//Deshabilita
 		
 		var boton = document.getElementById("ok");
@@ -201,8 +227,42 @@ function cambia(){
 		boton.style.background = "#006666";
 		boton.style.cursor = "default";
 
+
 	} else {
+		if (fecha_nacimiento.length ==0){
+			alert('Completar la Fecha de nacimiento');
+			var boton = document.getElementById("ok");
+
+			boton.disabled = true;
+			boton.style.background = "#006666";
+			return;
+		}
+		//input del calendario	
+		if(fecha_nacimiento.length < 3 ){
 			
+			alert('La fecha debe completarse');
+			document.getElementById("fecha_nacimiento").value = "";
+			var boton = document.getElementById("ok");
+			boton.disabled = true;
+			boton.style.background = "#006666";
+			return;
+
+		}
+		if(fecha_nacimiento.length > 2  ){
+			if( fecha_nacimiento.substring(2, 3) != "-" ||  fecha_nacimiento.substring(5, 6) != "-" || fecha_nacimiento.length != 10){
+			alert('Problema con la fecha ingresada, intente de nuevo');
+			document.getElementById("fecha_nacimiento").value = "";
+			var boton = document.getElementById("ok");
+			boton.disabled = true;
+			boton.style.background = "#006666";
+			return;
+
+
+			}
+		}
+
+
+
 		//Si paso todo ok, Habilita
 		var boton = document.getElementById("ok");
 		boton.disabled = false;
@@ -216,11 +276,15 @@ function cambia(){
 
 
 </script> 
-</html>
 
-<style>
- 	#ok{
-		max-height: 33px;
-		width: 104px;
-	 }
-</style>
+
+		<style>
+			#ok{
+				max-height: 33px;
+				width: 104px;
+			}
+		</style>
+	<head>
+
+
+</html>
