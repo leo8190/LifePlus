@@ -1,4 +1,4 @@
-<<?php 
+<?php 
 
 if($_SESSION['id_rol'] == 1)
 include("../html/LeftMenuAdmin.php");

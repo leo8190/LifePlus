@@ -36,10 +36,10 @@ include("../html/LeftMenuBase.php");
 			
 				<form action="../controllers/verprospecto.php" method="get">
 				<div class="div_in">
-				<input type="submit" name="volver" value="Volver">
+				<input type="submit" name="volver" value="Volver" class="boton">
 				<input type="hidden" name="num_prosp" 
 				value="<?= $this->id_prospecto ?>">
-				</div>
+				</div>	
 				</form>
 
 			

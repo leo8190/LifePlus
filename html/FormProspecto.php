@@ -6,6 +6,7 @@ else if ($_SESSION['id_rol'] == 3)
 include("../html/LeftMenuSupervisor.php");
 else
 include("../html/LeftMenuBase.php");
+
  ?>
 		<div id="contenedor_" >
 			<h1> Prospecto n° <?= $this->pr['id_prospectos']. " - ".$this->pr['estado']?></h1>
@@ -68,7 +69,7 @@ include("../html/LeftMenuBase.php");
 				<tbody>
 					<?php foreach($this->int_pr as $i){ ?>
 					<tr>
-					<td><?= $i['parentezco']?></td>
+					<td><?= $i['tipo_nombre']?></td>
 					<td><?= $i['nombre']?></td>
 					<td><?= $i['apellido'] ?></td>
 					<td><?= $i['dni']?></td>
@@ -117,10 +118,9 @@ include("../html/LeftMenuBase.php");
 
 			<!--<br/><br/>-->
 
-				<div id="botones">
-					
+				<div id="botones"> 
 					<form method="POST" action="../controllers/cambiarestado.php">
-					<div class="div_in"><input  type="submit" name="cambiar_estado" class="boton" value="CAMBIAR ESTADO" >
+					<div class="div_in"><input  type="submit" id="cambiar_estado" name="cambiar_estado" class="boton" value="CAMBIAR ESTADO" >
 					</div>
 					<input type="hidden" name="id_pr" 
 					value="<?=$this->pr['id_prospectos']?>">
@@ -129,10 +129,10 @@ include("../html/LeftMenuBase.php");
 					<input  type="hidden" name="nom_est" 
 					value="<?=$this->pr['estado']?>">
 					</form>
-					
+
 					<form method="POST" action="../controllers/agregarseguimiento.php">
 					<div class="div_in">
-					<input type="submit" name="agregar_comentario" class="boton" value="AGRECAR COMENTARIOS" >
+					<input type="submit" name="agregar_comentario" class="boton" value="AGREGAR COMENTARIOS" >
 					<input type="hidden" name="id_pr" 
 					value="<?=$this->pr['id_prospectos']?>">
 					<input  type="hidden" name="nom_est" 
@@ -181,6 +181,8 @@ boton.disabled = true;
 boton.style.background = "#006666";
 boton.style.cursor = "default";
 
+
+
 function cambia(){	
 	if( document.getElementById("file").files.length == 0 ) 
 	{
@@ -197,4 +199,6 @@ function cambia(){
 		boton.style.cursor = "pointer";
 	}
 }
+
+
 </script>

@@ -155,27 +155,26 @@ function cambia(){
 			<form onsubmit="return confirm('¿Esta seguro que desea agregar este integrante?');" 
                 method="post" action="agregarintegrante.php">
 				<div class="div_in">
-					<label for="nom">Nombre: </label><input id="nom" type="text" name="nom" oninput="cambia()" required>
+					<label for="nom">Nombre: </label><input  minlength="3" maxlength="30"  class="form-control form-control-sm" id="nom" type="text" name="nom" oninput="cambia()" required>
 				</div>
 				<div class="div_in">
-					<label for="ape">Apellido: </label><input id="ape" type="text" name="ape" oninput="cambia()" required>
+					<label for="ape">Apellido: </label><input  minlength="3" maxlength="30"  class="form-control form-control-sm" id="ape" type="text" name="ape" oninput="cambia()" required>
 				</div>
                 
 				<div class="div_in">
 					<label for="tipo_doc">Tipo de documento: </label>
-					<select id="tipo_doc" name="tipo_doc" style="width: 100px;" oninput="cambia()" required>
-			 				<option value="0">Seleccionar</option>
+					<select class="form-control form-control-sm" id="tipo_doc" name="tipo_doc" style="width: 100px;" oninput="cambia()" required>
 			 				<option value="1">DNI</option>
 			 				<option value="2">PA</option>
 			 		</select>
 			 	</div>
 			 	<div class="div_in">
 					<label for="num_d"> N°: </label>
-					<input  type="text" name="num_doc" id="num_doc" style="width: 200px;" oninput="cambia()" required>
+					<input  minlength="7" maxlength="12"  class="form-control form-control-sm"  type="text" name="num_doc" id="num_doc" style="width: 200px;" oninput="cambia()" required>
 				</div>				
 			 	<div class="div_in">
 			 		<label for="sexo"> Sexo: </label>
-			 		<select id="sexo" name="sexo" oninput="cambia()" required>
+			 		<select class="form-control form-control-sm" id="sexo" name="sexo" oninput="cambia()" required>
 			 				<option value="0">Seleccionar</option>
 			 				<option value="M">M</option>
 			 				<option value="F">F</option>
@@ -183,7 +182,7 @@ function cambia(){
 			 	</div>	
                 <div class="div_in">
 			 		<label for="tipo_ingresante"> Parentesco: </label>
-			 		<select id="tipo_ingresante" name="tipo_ingresante" oninput="cambia()" required>
+			 		<select class="form-control form-control-sm" id="tipo_ingresante" name="tipo_ingresante" oninput="cambia()" required>
 			 				<option value="0">Seleccionar</option>
 			 				<option value="1">Titular del plan</option>
 			 				<option value="2">Cónyuge</option>
@@ -192,7 +191,7 @@ function cambia(){
 			 	</div>		
                  <div class="div_in">
 			 		<label for="fecha_nacimiento"> Fecha de Nacimiento: </label>
-                    <input name="fecha_nacimiento" type="text" id="fecha_nacimiento" onchange="cambia()">
+                    <input class="form-control form-control-sm" name="fecha_nacimiento" type="text" id="fecha_nacimiento" onchange="cambia()">
 			 	</div>                 
             	<input name="id_prospecto" id="id_prospecto" type="hidden" value="<?=$this->id_prospecto?>">		 				 								 		
 			    <input name="ok" id="ok" class="boton" type="submit" value="Finalizar">

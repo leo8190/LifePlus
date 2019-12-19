@@ -12,7 +12,7 @@ include("../html/LeftMenuBase.php");
 			<h2>Ingrese el nombre de la Agencia</h2>
 			<form method="post" action="">
 				<div class="div_in">
-					<label for="nom">Nombre:</label><input id="nom" type="text" name="nombre" oninput="cambia()" required>
+					<label for="nom">Nombre:</label><input  minlength="3" maxlength="25"  id="nom" type="text" name="nombre" oninput="cambia()" required>
 				</div>
 			 		<!---<label for="sup">Supervisor:</label>
 			 		<select id="sup" name="id_supervisor">

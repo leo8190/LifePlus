@@ -30,7 +30,7 @@
 		}
 		#contenido{
 			color:white;
-			background: rgba(0,0,0,0.8);
+			background: rgba(47, 115, 102, 0.54) !important;
 			padding: 2rem;
 			border-radius: 5px;
 		}
@@ -43,11 +43,11 @@
 		#contenido div input[type="text"],#contenido div input[type="password"]{
 			width: 100%;
 			display: block;
-			background: transparent;
+			background: white;
 			border:1px solid white;
 			padding: 9px;
 			margin-bottom: 1rem;
-			color:white;
+			color: grey;
 			font-size: 16px;
 		}
 		input[type="submit"]{
@@ -77,6 +77,7 @@
 		#message{
 			margin-top: 15px;
 		}
+
 	</style>
 
 </head>
@@ -87,14 +88,14 @@
 			<img src="../img/logo.png" class="logo">
 			<form action="login.php" method="post">
 				<div>
-					<input type="text" id="usuario" name="usuario" placeholder="Usuario:" oninput="cambia()" required>
+					<input  minlength="10" maxlength="50"  type="text" id="usuario" name="usuario" placeholder="Usuario:" oninput="cambia()" required>
 				</div>
 				<div>
-					<input type="password" id="password" name="password" placeholder="Password:" oninput="cambia()" required>
+					<input minlength="8" maxlength="25" type="password" id="password" name="password" placeholder="Password:" oninput="cambia()" required>
 				</div>
 				<div class="center">
 					<input type="submit" id="Ingresar" name="Ingresar" value="Ingresar">
-				</div>
+				</div>		
 				<div id="message"> <?php if (isset($message)) echo $message ?> </div>
 			</form>
 		</div>

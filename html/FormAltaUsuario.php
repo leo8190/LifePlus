@@ -17,22 +17,21 @@
 			<form method="post" action="" onsubmit="return validateForm()">
 				<!--No se deberian poner en un select los datos del leg y a partir de ahi crear el usuario ?? Es un alta de usuario no de un empleado de la empresa -->
 				<div class="div_in">
-					<label for="nombre">Nombre: </label><input class="form-control form-control-sm"   id="nom" type="text" name="nom" oninput="cambia()" required>
+					<label for="nombre">Nombre: </label><input  minlength="3" maxlength="40"  class="form-control form-control-sm"   id="nom" type="text" name="nom" oninput="cambia()" required>
 				</div>
 					
 				<div class="div_in">
-					<label for="apellido">Apellido: </label><input class="form-control form-control-sm"  id="ape" type="text" name="ape" oninput="cambia()" required>
+					<label for="apellido">Apellido: </label><input  minlength="3" maxlength="40"  class="form-control form-control-sm"  id="ape" type="text" name="ape" oninput="cambia()" required>
 				</div>	
 
 				<div class="div_in">
 					<label for="email"> Correo electrónico: </label>
-			 		<input class="form-control form-control-sm"  type="text" name="email" id="email" style="width: 200px;" onchange="cambia()" required>
+			 		<input  minlength="10" maxlength="50" class="form-control form-control-sm"  type="text" name="email" id="email" style="width: 200px;" onchange="cambia()" required>
 				</div>	
 
 				<div class="div_in">
 					<label for="tipo">Tipo de documento: </label>
 					<select class="form-control form-control-sm"  id="tipo_doc" name="tipo_doc" style="width: 100px;" oninput="cambia()" required>
-			 				<option value="0">Seleccionar</option>
 			 				<option value="1">DNI</option>
 			 				<option value="2">PA</option>
 			 				<option value="3">LE</option>
@@ -41,17 +40,17 @@
 				</div>	
 
 				<div class="div_in">
-					<label for="num_doc"> N°: </label><input class="form-control form-control-sm"  type="text" name="dni" id="num_doc" style="width: 200px;" oninput="cambia()" required>
+					<label for="num_doc"> N°: </label><input   minlength="7" maxlength="10" class="form-control form-control-sm"  type="text" name="dni" id="num_doc" style="width: 200px;" oninput="cambia()" required>
 				</div>	
 
 				<div class="div_in">
 					<label for="nombre_usuario"> Nombre de usuario: </label>
-			 		<input class="form-control form-control-sm"  type="text" id="nombre_usuario" name="nombre_usuario" oninput="cambia()" required>
+			 		<input class="form-control form-control-sm" minlength="10" maxlength="50" type="text" id="nombre_usuario" name="nombre_usuario" oninput="cambia()" required>
 				</div>	
 					
 				<div class="div_in">
 					<label for="password"> Password: </label>
-			 		<input class="form-control form-control-sm"  type="text" id="password" name="password" oninput="cambia()" required>
+			 		<input class="form-control form-control-sm" minlength="8" maxlength="25" type="text" id="password" name="password" oninput="cambia()" required>
 				</div>	
 				<div class="div_in">
 					<label for="agencia">Agencia: </label>
@@ -83,7 +82,7 @@
 				</div>	
 				<div class="div_in">
 					<label for="telefono"> Telefono: </label>
-			 		<input class="form-control form-control-sm"  type="text" id="tel" name="tel" oninput="cambia()" required>
+			 		<input  minlength="8" maxlength="14" class="form-control form-control-sm"  type="text" id="tel" name="tel" oninput="cambia()" required>
 				</div>	
 				<div class="div_in">
 					<input name="ok" id="ok" class="boton" type="submit"  

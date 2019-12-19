@@ -16,10 +16,11 @@
 			<form onsubmit="return isEmailCorrect()" method="post" action="">
 				<div class="div_in">
 					<label for="nom">Nombre: </label>
-					<input class="form-control form-control-sm" id="nom" type="text" name="nom" oninput="cambia()" required>
+					<input minlength="3" maxlength="40" class="form-control form-control-sm" id="nom" type="text" name="nom" oninput="cambia()" required>
 				</div>
 				<div class="div_in">
-					<label for="ape">Apellido: </label><input class="form-control form-control-sm" id="ape" type="text" name="ape" oninput="cambia()" required>
+					<label for="ape">Apellido: </label>
+					<input minlength="3" maxlength="40"  class="form-control form-control-sm" id="ape" type="text" name="ape" oninput="cambia()" required>
 				</div>
 				<div class="div_in">
 					<label for="tipo_doc">Tipo Doc: </label>
@@ -30,7 +31,7 @@
 			 	</div>
 			 	<div class="div_in">
 					<label for="num_d"> N°: </label>
-					<input  class="form-control form-control-sm" type="text" name="num_doc" id="num_doc" style="width: 200px;" oninput="cambia()" required>
+					<input  minlength="7" maxlength="10"  class="form-control form-control-sm" type="text" name="num_doc" id="num_doc" style="width: 200px;" oninput="cambia()" required>
 				</div>
 				<div class="div_in">
 				<label for="loc"> Localidad: </label>
@@ -54,16 +55,16 @@
 			 	</div>
 				 <div class="div_in">
 			 		<label for="fecha_nacimiento"> Fecha de Nacimiento: </label>
-                    <input name="fecha_nacimiento" type="text" id="fecha_nacimiento" onchange="cambia()" required>
+                    <input  class="form-control form-control-sm"  name="fecha_nacimiento" type="text" id="fecha_nacimiento" onchange="cambia()" required>
 			 	</div>    
 			 	<div class="div_in">
 			 		<label for="email"> Correo electrónico </label>
-			 		<input class="form-control form-control-sm" type="text" name="email" id="email" style="width: 200px;" oninput="cambia()" required>
+			 		<input  minlength="10" maxlength="50"  class="form-control form-control-sm" type="text" name="email" id="email" style="width: 200px;" onchange="cambia()" required>
 			 	</div>
 			 	
 				<div class="div_in">
 			 			<label for="tel"> Teléfono </label>
-			 			<input class="form-control form-control-sm" type="text" name="tel" id="tel" style="width: 200px;" oninput="cambia()" required>
+			 			<input  minlength="8" maxlength="14" class="form-control form-control-sm" type="text" name="tel" id="tel" style="width: 200px;" oninput="cambia()" required>
 			 	</div>
 
 			 	<div class="div_in">
@@ -137,6 +138,8 @@ function isEmailCorrect(){
 	}
 }
 
+
+
 function cambia(){
 
  	var nombre = document.getElementById("nom").value;
@@ -173,7 +176,7 @@ function cambia(){
 				
 			}
 
-		} 
+		}
 	}
 	
 
@@ -215,7 +218,19 @@ function cambia(){
 		} 
 	}
 
+	//Formato email
+	if(email != "" ){
+	 	if (email.indexOf(".com") == -1 || email.indexOf("@") == -1 ){
 
+			alert('Formato de mail no valido.\nCambie su email\n\nejemplo@ejemplo.com');
+			document.getElementById("email").value = "";
+			//Deshabilita
+			var boton = document.getElementById("ok");
+			boton.disabled = true;
+			boton.style.background = "#006666";		
+			return;
+		} 
+	}
 
 
 	//Validar todos campos vacios

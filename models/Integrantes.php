@@ -12,8 +12,15 @@ class Integrantes extends Model {
 		$prosAux = new Prospectos;
 		$prosAux->existeProspecto($num_prospecto);
 
-		$this->db->query("SELECT i.id_integrante id_integrante, i.tipo_ingresante parentezco, i.nombre nombre, i.apellido apellido, i.dni dni, i.sexo sexo, i.fecha_nacimiento fech_nac FROM integrantes i WHERE i.id_prospecto=".$num_prospecto);
+		$this->db->query("SELECT i.id_integrante id_integrante, i.tipo_ingresante parentezco, i.nombre nombre, i.apellido apellido,ti.nombre tipo_nombre, i.dni dni, i.sexo sexo, i.fecha_nacimiento fech_nac
+		FROM integrantes i
+		join tipo_ingresantes ti on 
+		ti.id_tipo = i.tipo_ingresante 
+		WHERE i.id_prospecto=".$num_prospecto);
 		return $this->db->fetchAll();
+
+	//	SELECT i.id_integrante id_integrante, i.tipo_ingresante parentezco, i.nombre nombre, i.apellido apellido, i.dni dni, i.sexo sexo, i.fecha_nacimiento fech_nac FROM integrantes i WHERE i.id_prospecto=".$num_prospecto);
+		
 	}
 	public function borrarIntegrante($id_int){
 		
